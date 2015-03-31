@@ -89,3 +89,36 @@ sum(ln.pred.table$check)
 ln.error.pred<-subset(ln.pred.table, ln.pred.table$check==1)
 
 ln.error.pred
+
+####### Creating function that returns Root Mean Squared Error
+rmse <- function(error)
+{
+    sqrt(mean(error^2))
+}
+ 
+####### Function that returns Mean Absolute Error
+mae <- function(error)
+{
+    mean(abs(error))
+}
+
+####### define error #######
+ 
+error<-ln.pred.table$zip.true.label-ln.pred.table$zip.ln.result
+
+
+####### calculate Root Mean Squared Error and Mean Absolute Error ####
+
+zip.rmse<-rmse(error)
+zip.rmse
+
+zip.mae<-mae(error)
+zip.mae
+
+
+
+
+
+
+
+

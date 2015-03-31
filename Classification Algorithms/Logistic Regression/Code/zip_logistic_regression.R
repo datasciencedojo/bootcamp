@@ -53,7 +53,7 @@ log.zip.testing[,1]<-as.factor(log.zip.testing[,1])
 ###### Build logistic regression model with log.zip.training dataset####
 
 
-zip.logMod<-glm(ModForm,data=log.zip.training, family = "binomial")
+zip.logMod<-glm(ModForm,data=log.zip.training, family = "binomial",maxit=200)
 
 ###### extract logistic regression model summary #####
 
@@ -77,8 +77,6 @@ zip.logLabel<-ifelse(zip.logModPred>=0.5, "3", "2")
 zip.logTrueLabel<-as.character(log.zip.testing[,1])
 
 ########reassign "2" and "3" to factor in testing set#####
-#####log.zip.true.label<-ifelse(log.zip.true.label==1, "3", "2")
-
 
 zip.logPredTable<-cbind(zip.logTrueLabel, zip.logLabel)
 
@@ -103,6 +101,10 @@ log.error.pred
 ##### eg. row 128, 280, 510 on testing set ######
 
 levelplot(matrix(zip.test[280,2:257],nrow=16, byrow=TRUE))
+
+###### confusion table for classification
+zip.table<-table(zip.logPredTable$zip.logTrueLabel,zip.logPredTable$zip.logLabel)
+zip.table
 
 
 
