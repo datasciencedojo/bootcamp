@@ -74,7 +74,6 @@ TIMESTAMP BY
 GROUP BY
     TumblingWindow(second, 3)
 
-
 -- Combine the last two queries about descriptive statistics together into one query.
 SELECT
     System.Timestamp AS WindowEnd,
@@ -139,7 +138,6 @@ TIMESTAMP BY
 Group by 
     HoppingWindow(second, 3, 1);
 
-
 -- Creates the humidity table
 CREATE TABLE sensor(
 	WindowEnd DATETIME2,
@@ -167,6 +165,19 @@ TIMESTAMP BY
 Group by 
     HoppingWindow(second, 3, 1);
 
+-------------------------------------------------------------------------------------
+-- Vertically joining multiple streams and their difference in
+-- humidity and temperature
+select
+    System.timestamp as "WindowEnd"
+    , sup.hmdt as SupHmdt, sup.temp as SupTemp
+    , bat.hmdt as BatHmdt, bat.temp as BatTemp
+    , (sup.hmdt - bat.hmdt) as HmdtDiff
+    , (sup.temp - sup.temp) as TempDiff
+from superman as sup timestamp by time
+join batman as bat timestamp by time
+on (datediff(second, sup, bat) between 0 and 1) and sup.time = bat.time
+where ((sup.hmdt - bat.hmdt) + (sup.temp - sup.temp)) > 0
 
 -------------------------------------------------------------------------------------
 -- Room Aggregations
