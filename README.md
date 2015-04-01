@@ -1,8 +1,7 @@
 # bootcamp
-Data Science Dojo Boot Camp Package
 _This repo includes slides and sample codes in DSD's bootcamp_  
 
-The folders are described as following:  
+**The folders are described as following:**  
 
 * Fundamentals_of_Data_Science  
   Course: Data Exploration Visulization and feature engineering using R  
