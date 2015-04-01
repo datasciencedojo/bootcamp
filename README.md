@@ -4,7 +4,9 @@ _This repo includes slides and sample codes in DSD's bootcamp_
 **The folders are described as following:**  
 
 * Fundamentals_of_Data_Science  
-  Course: Data Exploration Visulization and feature engineering using R  
+  + Plotting Systems
+  + Data_Exploration
+  + R_Markdown
 * Classification Algorithms 
   + Decision_Tree
   + Logistic_Regression
