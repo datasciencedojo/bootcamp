@@ -3,6 +3,9 @@ _This repo includes slides and sample codes in DSD's bootcamp_
 
 **The folders are described as following:**  
 
+* Pre_Bootcamp
+  All slides of the webinar courses before the bootcamp.  
+  A great tutorial of Azure ML Studio can be found at: https://www.youtube.com/watch?v=tfYT1KdBh2Y
 * Fundamentals_of_Data_Science  
   + Plotting_Systems
   + Data_Exploration
