@@ -47,11 +47,18 @@ dim(ozone.testing)
 ####### building a linear regression
 
 ozone.linMod<-lm(ozone~., data=ozone.training)
-summary(zone.linMod)
+summary(ozone.linMod)
+
+####### visualize linear model #######
+
+layout(matrix(c(1,2,3,4),2,2)) # optional 4 graphs/page 
+plot(ozone.linMod)
 
 ####### To predict using linear regression model #####
 
 ozone.linModPred = predict(ozone.linMod, newdata=ozone.testing)
+
+
 
 ####### Creating function that returns Root Mean Squared Error
 rmse <- function(error)
