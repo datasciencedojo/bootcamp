@@ -6,7 +6,7 @@
 ##														##
 ######################################################################################
 
-install.packages("stat")
+install.packages("stats")
 install.packages("fpc")
 
 library(stats)
