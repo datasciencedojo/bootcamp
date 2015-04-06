@@ -1,7 +1,7 @@
 ######################################################################################
 ## Objective: Machine learning of Iris species classification with  decision tree	##
 ##		  												##
-## Data source: iris data set (included with R installment					##
+## Data source: iris data set (included with R installment)					##
 ##		    please install "rpart" package 							##
 ##														##
 ######################################################################################
@@ -9,7 +9,7 @@
 
 
 
-install.packages("rpart")
+#install.packages("rpart")   ##please remove "#" if you need to install "rpart" package ###
 
 library(rpart)
 
