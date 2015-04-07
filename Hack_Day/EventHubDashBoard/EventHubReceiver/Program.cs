@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.ServiceBus.Messaging;
-using System.Threading.Tasks;
 
 namespace EventHubReceiver
 {
@@ -13,10 +12,10 @@ namespace EventHubReceiver
     {
         static void Main(string[] args)
         {
-            string eventHubConnectionString = "Endpoint=sb://sensortaghub-ns.servicebus.windows.net/;SharedAccessKeyName=all;SharedAccessKey=t4Vbmoe11DifkE7I5BAZetk0rIks6eZXNe8NOZaSlzA=";
-            string eventHubName = "temperaturemonitorhub";
+            string eventHubConnectionString = "Endpoint=sb://sensortaghub-ns.servicebus.windows.net/;SharedAccessKeyName=all;SharedAccessKey=T1T6DB85tsTRA0AHjrjeWR5NqT7fyPSRfD9oWepy85I=";
+            string eventHubName = "dojoeventhub";
             string storageAccountName = "sensorstreamblob";
-            string storageAccountKey = "yYU23kfrO/FKMfMghvSQK4CGMIHbnCdyxIxbe6t+gDzOjeTB7IkrPYnuGjL7v4SVzDsbdE5H9Bn6/Wyhn4Jhew==";
+            string storageAccountKey = "4jmX7nGqlt9+Cw0Js7WR7bkIU8L6ozvdHiNZy+wYxay8TBQdAo30u8T07b0Zmw6hg2IoQN8fUhiP5F9lGVKeAA==";
             string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
                         storageAccountName, storageAccountKey);
 
