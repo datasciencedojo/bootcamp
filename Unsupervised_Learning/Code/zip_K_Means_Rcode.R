@@ -1,12 +1,12 @@
-######################################################################################
-## Objective: K-Means clustering on hand-written digits recognition.           	##
-##		 												##
-## Data source: zip.train.csv    (please download from GitHub to your local drive)  ##
-##		    												##
-##														##
-######################################################################################
+################################################################################
+## Objective: K-Means clustering on hand-written digits recognition.          ##
+##		 												                                                ##
+## Data source: zip.train.csv(please download from GitHub to your local drive)##
+##		    												                                            ##
+##														                                                ##
+################################################################################
 
-install.packages("stats")
+
 install.packages("fpc")
 
 library(stats)
