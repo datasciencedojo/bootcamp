@@ -1,9 +1,9 @@
-$VerbosePreference ="SilentlyContinue"
-$region = "West Europe"
-$uniqueSuffix = Get-Random -Maximum 9999999999
+# $VerbosePreference ="SilentlyContinue"
+# $region = "West Europe"
+# $uniqueSuffix = Get-Random -Maximum 9999999999
 [Environment]::CurrentDirectory = $PSScriptRoot
-$ErrorActionPreference  = 'Stop'
-$SubscriptionId
+# $ErrorActionPreference  = 'Stop'
+# $SubscriptionId
 # # Check Azure account
 # $acc = Get-AzureAccount
 # if (!$acc)
@@ -67,25 +67,25 @@ function InitSubscription{
     }
 }
 
-InitSubscription
+# InitSubscription
 
 # Setup Event Hubs
-Write-Host "Create Service Bus namespace and Event Hubs" -ForegroundColor White
-$entryEvenHub = "entry"
-$exitEvenHub = "exit"
-$eventHubs = @($entryEvenHub, $exitEvenHub)
+# Write-Host "Create Service Bus namespace and Event Hubs" -ForegroundColor White
+# $entryEvenHub = "entry"
+# $exitEvenHub = "exit"
+# $eventHubs = @($entryEvenHub, $exitEvenHub)
 
-$nsMgrType = [System.Reflection.Assembly]::LoadFrom($PSScriptRoot +"\Microsoft.ServiceBus.dll").GetType("Microsoft.ServiceBus.NamespaceManager")
-$nsName = "TollData" + $uniqueSuffix
-$ns = New-AzureSBNamespace -Name $nsName -Location $region -CreateACSNamespace $true -NamespaceType Messaging
-Write-Host ("Created Service Bus namespace $nsName")  -ForegroundColor Green
-$nsMgr = $nsMgrType::CreateFromConnectionString($ns.ConnectionString)
+# $nsMgrType = [System.Reflection.Assembly]::LoadFrom($PSScriptRoot +"\Microsoft.ServiceBus.dll").GetType("Microsoft.ServiceBus.NamespaceManager")
+# $nsName = "TollData" + $uniqueSuffix
+# $ns = New-AzureSBNamespace -Name $nsName -Location $region -CreateACSNamespace $true -NamespaceType Messaging
+# Write-Host ("Created Service Bus namespace $nsName")  -ForegroundColor Green
+# $nsMgr = $nsMgrType::CreateFromConnectionString($ns.ConnectionString)
  
-ForEach ($ehName in $eventHubs) 
-{ 
-	$eh = $nsMgr.CreateEventHubIfNotExists($ehName)
-	Write-Host ("Created Event Hub: $ehName") -ForegroundColor Green
-}
+# ForEach ($ehName in $eventHubs) 
+# { 
+# 	$eh = $nsMgr.CreateEventHubIfNotExists($ehName)
+# 	Write-Host ("Created Event Hub: $ehName") -ForegroundColor Green
+# }
 
 # Setup Azure SQL Database
 # Write-Host "Create Azure Sql Database and tables" -ForegroundColor White
@@ -116,21 +116,23 @@ ForEach ($ehName in $eventHubs)
 # $sqlConn.Close()
 # Write-Host "Created Sql tables" -ForegroundColor Green
 
-# Setup storage account
-$containerName = "tolldata"
-Write-Host "Create storage account and upload reference data file" -ForegroundColor White
-$storageAccountName = "tolldata" + $uniqueSuffix
-$result = New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $region
-Write-Host "Created storage account $storageAccountName" -ForegroundColor Green
-$storageKeys = Get-AzureStorageKey -StorageAccountName $storageAccountName
+# # Setup storage account
+# $containerName = "tolldata"
+# Write-Host "Create storage account and upload reference data file" -ForegroundColor White
+# $storageAccountName = "tolldata" + $uniqueSuffix
+# $result = New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $region
+# Write-Host "Created storage account $storageAccountName" -ForegroundColor Green
+# $storageKeys = Get-AzureStorageKey -StorageAccountName $storageAccountName
 
-$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKeys.Primary
-$container = New-AzureStorageContainer -Name $containerName -Context $storageContext
-$copyResult = Set-AzureStorageBlobContent -file ($PSScriptRoot + "\\Data\\Registration.csv") -Container tolldata -Blob "registration.csv" -Context $storageContext
-Write-Host "Uploaded reference data file" -ForegroundColor Green
+# $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKeys.Primary
+# $container = New-AzureStorageContainer -Name $containerName -Context $storageContext
+# $copyResult = Set-AzureStorageBlobContent -file ($PSScriptRoot + "\\Data\\Registration.csv") -Container tolldata -Blob "registration.csv" -Context $storageContext
+# Write-Host "Uploaded reference data file" -ForegroundColor Green
 
 # Run load generator
+$ConnectionString = Read-Host "Copy and paste the connection string of your namespace."
+$entryEvenHub = Read-Host "Event Hub name for entry tolls signals."
+$exitEvenHub  = Read-Host "Event Hub name for exit tolls signals."
 Write-Host "Start generating events" -ForegroundColor White
-Write-Host "ConnectionString: " + $ns.ConnectionString
 $tollAppType = [System.Reflection.Assembly]::LoadFrom($PSScriptRoot +"\\TollApp.exe").GetType("TollApp.Program")
-$tollAppType::SendData($ns.ConnectionString, $entryEvenHub, $exitEvenHub, $true)
+$tollAppType::SendData($ConnectionString, $entryEvenHub, $exitEvenHub, "true")

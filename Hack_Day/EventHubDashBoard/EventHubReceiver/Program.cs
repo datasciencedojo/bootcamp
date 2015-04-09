@@ -12,10 +12,10 @@ namespace EventHubReceiver
     {
         static void Main(string[] args)
         {
-            string eventHubConnectionString = "Endpoint=sb://sensortaghub-ns.servicebus.windows.net/;SharedAccessKeyName=all;SharedAccessKey=T1T6DB85tsTRA0AHjrjeWR5NqT7fyPSRfD9oWepy85I=";
-            string eventHubName = "dojoeventhub";
-            string storageAccountName = "sensorstreamblob";
-            string storageAccountKey = "4jmX7nGqlt9+Cw0Js7WR7bkIU8L6ozvdHiNZy+wYxay8TBQdAo30u8T07b0Zmw6hg2IoQN8fUhiP5F9lGVKeAA==";
+            string eventHubConnectionString = "Endpoint=sb://dojoeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=all;SharedAccessKey=K08/KLr2PmpR1COInSjmUkLya64TYSJDIQKw9Xm88BA=";
+            string eventHubName = "entrysignals";
+            string storageAccountName = "dojoattendeestorage";
+            string storageAccountKey = "OtJ77t3X6uMNIf6zd3xr4ZewW9vXDK9XQtaGXx7gOoaULgGQyBuvAfrC2aiOkUY/WV9H4lVU+ngaLUle7gVuWQ==";
             string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
                         storageAccountName, storageAccountKey);
 
