@@ -12,7 +12,7 @@ namespace EventHubReceiver
     {
         static void Main(string[] args)
         {
-            string eventHubConnectionString = "Endpoint=sb://dojoeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=all;SharedAccessKey=K08/KLr2PmpR1COInSjmUkLya64TYSJDIQKw9Xm88BA=";
+            string eventHubConnectionString = "Endpoint=sb://dojoeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=iPBMV+240sl6pUCC+HGFVgzze10RvHxGpo/LIy46wGo=";
             string eventHubName = "entrysignals";
             string storageAccountName = "dojoattendeestorage";
             string storageAccountKey = "OtJ77t3X6uMNIf6zd3xr4ZewW9vXDK9XQtaGXx7gOoaULgGQyBuvAfrC2aiOkUY/WV9H4lVU+ngaLUle7gVuWQ==";
