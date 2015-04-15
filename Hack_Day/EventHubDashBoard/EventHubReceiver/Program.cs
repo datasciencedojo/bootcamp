@@ -12,8 +12,8 @@ namespace EventHubReceiver
     {
         static void Main(string[] args)
         {
-            string eventHubConnectionString = "Endpoint=sb://dojoeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=iPBMV+240sl6pUCC+HGFVgzze10RvHxGpo/LIy46wGo=";
-            string eventHubName = "entrysignals";
+            string eventHubConnectionString = "Endpoint=sb://sensortaghub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=M3m5CupqfK6O1NPEeNAwC0EcOcyFtcxciQflmrIcN+8=";
+            string eventHubName = "aggregatesensorhub";
             string storageAccountName = "dojoattendeestorage";
             string storageAccountKey = "OtJ77t3X6uMNIf6zd3xr4ZewW9vXDK9XQtaGXx7gOoaULgGQyBuvAfrC2aiOkUY/WV9H4lVU+ngaLUle7gVuWQ==";
             string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
