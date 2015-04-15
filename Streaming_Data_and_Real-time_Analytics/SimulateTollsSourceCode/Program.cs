@@ -97,7 +97,7 @@ namespace TollApp
                     if (e is EntryEvent)
                     {
                         Console.WriteLine(
-                            "Entry Tmie: " + e.EntryTime.ToString()
+                            "Entry Time: " + e.EntryTime.ToString()
                             + " | Entry Booth: " + e.TollId.ToString()
                             + " | LicensePlate: " + e.LicensePlate.ToString());
                         entryEventHub.Send(
