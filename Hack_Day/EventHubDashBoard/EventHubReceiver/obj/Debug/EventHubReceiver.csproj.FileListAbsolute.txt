@@ -141,4 +141,3 @@ C:\GitRepos\bootcamp\Hack_Day\EventHubDashBoard\EventHubReceiver\bin\Debug\ko\Sy
 C:\GitRepos\bootcamp\Hack_Day\EventHubDashBoard\EventHubReceiver\bin\Debug\ru\System.Spatial.resources.dll
 C:\GitRepos\bootcamp\Hack_Day\EventHubDashBoard\EventHubReceiver\bin\Debug\zh-Hans\System.Spatial.resources.dll
 C:\GitRepos\bootcamp\Hack_Day\EventHubDashBoard\EventHubReceiver\bin\Debug\zh-Hant\System.Spatial.resources.dll
-C:\GitRepos\bootcamp\Hack_Day\EventHubDashBoard\EventHubReceiver\obj\Debug\EventHubReceiver.csprojResolveAssemblyReference.cache
