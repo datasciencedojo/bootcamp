@@ -10,9 +10,8 @@ _This repo includes slides and sample codes in DSD's bootcamp_
   + Plotting_Systems
   + Data_Exploration
   + R_Markdown
-* Classification Algorithms 
-  + Decision_Tree
-  + Logistic_Regression
+* Decision_Tree
+* Logistic_Regression
 * Regression_Algorithms
 * Unsupervised_Learning
 * Ensemble_Methods
@@ -22,7 +21,7 @@ _This repo includes slides and sample codes in DSD's bootcamp_
 
 ## DSD Github style guide
 * Always revise this README.md file to make it consistent with your upload.
-* For the names of all folders and files, replace space by "_"
+* For the names of all folders and folders, replace space by "_"
   For example: instead of "Fundamentals of Data Science", name it "Fundamentals_of_Data_Science".   
   Reason: command lines get confused by spase in some situations.
 * Write all README files as Markdown (.md) files as this one
@@ -33,3 +32,4 @@ _This repo includes slides and sample codes in DSD's bootcamp_
   + All source files, including pictures, etc. Make sure other people can generate your slides based on them.
   + Sample code, and dataset relavant to that content.
   + PDF file. Since people can read PDF file directly in browser.
+* For R code, let's follow [Google's R styple guide](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml#filenames).
