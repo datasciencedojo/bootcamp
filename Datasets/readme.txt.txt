@@ -1,1 +1,0 @@
-Any data sets should go in this folder.
