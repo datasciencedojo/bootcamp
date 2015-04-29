@@ -1,0 +1,791 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Practices.TransientFaultHandling.Core.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff">
+            <summary>Shim type of Microsoft.Practices.TransientFaultHandling.ExponentialBackoff</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.#ctor(Microsoft.Practices.TransientFaultHandling.ExponentialBackoff)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.Constructor">
+            <summary>Sets the shim of ExponentialBackoff.ExponentialBackoff()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.ConstructorInt32TimeSpanTimeSpanTimeSpan">
+            <summary>Sets the shim of ExponentialBackoff.ExponentialBackoff(Int32 retryCount, TimeSpan minBackoff, TimeSpan maxBackoff, TimeSpan deltaBackoff)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.ConstructorStringInt32TimeSpanTimeSpanTimeSpan">
+            <summary>Sets the shim of ExponentialBackoff.ExponentialBackoff(String name, Int32 retryCount, TimeSpan minBackoff, TimeSpan maxBackoff, TimeSpan deltaBackoff)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.ConstructorStringInt32TimeSpanTimeSpanTimeSpanBoolean">
+            <summary>Sets the shim of ExponentialBackoff.ExponentialBackoff(String name, Int32 retryCount, TimeSpan minBackoff, TimeSpan maxBackoff, TimeSpan deltaBackoff, Boolean firstFastRetry)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.GetShouldRetry">
+            <summary>Sets the shim of ExponentialBackoff.GetShouldRetry()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff._GetShouldRetryb__0Int32ExceptionTimeSpanOut">
+            <summary>Sets the shim of ExponentialBackoff.&lt;GetShouldRetry&gt;b__0(Int32 currentRetryCount, Exception lastException, TimeSpan&amp; retryInterval)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.AllInstances.GetShouldRetry">
+            <summary>Sets the shim of ExponentialBackoff.GetShouldRetry()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimExponentialBackoff.AllInstances._GetShouldRetryb__0Int32ExceptionTimeSpanOut">
+            <summary>Sets the shim of ExponentialBackoff.&lt;GetShouldRetry&gt;b__0(Int32 currentRetryCount, Exception lastException, TimeSpan&amp; retryInterval)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval">
+            <summary>Shim type of Microsoft.Practices.TransientFaultHandling.FixedInterval</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.#ctor(Microsoft.Practices.TransientFaultHandling.FixedInterval)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.Constructor">
+            <summary>Sets the shim of FixedInterval.FixedInterval()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.ConstructorInt32">
+            <summary>Sets the shim of FixedInterval.FixedInterval(Int32 retryCount)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.ConstructorInt32TimeSpan">
+            <summary>Sets the shim of FixedInterval.FixedInterval(Int32 retryCount, TimeSpan retryInterval)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.ConstructorStringInt32TimeSpan">
+            <summary>Sets the shim of FixedInterval.FixedInterval(String name, Int32 retryCount, TimeSpan retryInterval)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.ConstructorStringInt32TimeSpanBoolean">
+            <summary>Sets the shim of FixedInterval.FixedInterval(String name, Int32 retryCount, TimeSpan retryInterval, Boolean firstFastRetry)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.GetShouldRetry">
+            <summary>Sets the shim of FixedInterval.GetShouldRetry()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval._GetShouldRetryb__0Int32ExceptionTimeSpanOut">
+            <summary>Sets the shim of FixedInterval.&lt;GetShouldRetry&gt;b__0(Int32 currentRetryCount, Exception lastException, TimeSpan&amp; interval)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval._GetShouldRetryb__1Int32ExceptionTimeSpanOut">
+            <summary>Sets the shim of FixedInterval.&lt;GetShouldRetry&gt;b__1(Int32 currentRetryCount, Exception lastException, TimeSpan&amp; interval)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.AllInstances.GetShouldRetry">
+            <summary>Sets the shim of FixedInterval.GetShouldRetry()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimFixedInterval.AllInstances._GetShouldRetryb__1Int32ExceptionTimeSpanOut">
+            <summary>Sets the shim of FixedInterval.&lt;GetShouldRetry&gt;b__1(Int32 currentRetryCount, Exception lastException, TimeSpan&amp; interval)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard">
+            <summary>Shim type of Microsoft.Practices.TransientFaultHandling.Guard</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.ArgumentNotDefaultValueOf1M0String``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0,System.String})">
+            <summary>Sets the shim of Guard.ArgumentNotDefaultValue(!!0 argumentValue, String argumentName)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.IsValueDefinedOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,System.Boolean})">
+            <summary>Sets the shim of Guard.IsValueDefined(!!0 value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.ArgumentNotGreaterThanDoubleDoubleString">
+            <summary>Sets the shim of Guard.ArgumentNotGreaterThan(Double argumentValue, Double ceilingValue, String argumentName)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.ArgumentNotNegativeValueInt32String">
+            <summary>Sets the shim of Guard.ArgumentNotNegativeValue(Int32 argumentValue, String argumentName)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.ArgumentNotNegativeValueInt64String">
+            <summary>Sets the shim of Guard.ArgumentNotNegativeValue(Int64 argumentValue, String argumentName)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.ArgumentNotNullObjectString">
+            <summary>Sets the shim of Guard.ArgumentNotNull(Object argumentValue, String argumentName)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.ArgumentNotNullOrEmptyStringStringString">
+            <summary>Sets the shim of Guard.ArgumentNotNullOrEmptyString(String argumentValue, String argumentName)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.ArgumentNotZeroOrNegativeValueInt32String">
+            <summary>Sets the shim of Guard.ArgumentNotZeroOrNegativeValue(Int32 argumentValue, String argumentName)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.EnumValueIsDefinedTypeObjectString">
+            <summary>Sets the shim of Guard.EnumValueIsDefined(Type enumType, Object value, String argumentName)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimGuard.TypeIsAssignableFromTypeTypeTypeString">
+            <summary>Sets the shim of Guard.TypeIsAssignableFromType(Type assignee, Type providedType, String argumentName)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental">
+            <summary>Shim type of Microsoft.Practices.TransientFaultHandling.Incremental</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.#ctor(Microsoft.Practices.TransientFaultHandling.Incremental)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.Constructor">
+            <summary>Sets the shim of Incremental.Incremental()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.ConstructorInt32TimeSpanTimeSpan">
+            <summary>Sets the shim of Incremental.Incremental(Int32 retryCount, TimeSpan initialInterval, TimeSpan increment)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.ConstructorStringInt32TimeSpanTimeSpan">
+            <summary>Sets the shim of Incremental.Incremental(String name, Int32 retryCount, TimeSpan initialInterval, TimeSpan increment)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.ConstructorStringInt32TimeSpanTimeSpanBoolean">
+            <summary>Sets the shim of Incremental.Incremental(String name, Int32 retryCount, TimeSpan initialInterval, TimeSpan increment, Boolean firstFastRetry)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.GetShouldRetry">
+            <summary>Sets the shim of Incremental.GetShouldRetry()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental._GetShouldRetryb__0Int32ExceptionTimeSpanOut">
+            <summary>Sets the shim of Incremental.&lt;GetShouldRetry&gt;b__0(Int32 currentRetryCount, Exception lastException, TimeSpan&amp; retryInterval)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.AllInstances.GetShouldRetry">
+            <summary>Sets the shim of Incremental.GetShouldRetry()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimIncremental.AllInstances._GetShouldRetryb__0Int32ExceptionTimeSpanOut">
+            <summary>Sets the shim of Incremental.&lt;GetShouldRetry&gt;b__0(Int32 currentRetryCount, Exception lastException, TimeSpan&amp; retryInterval)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException">
+            <summary>Shim type of Microsoft.Practices.TransientFaultHandling.RetryLimitExceededException</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.#ctor(Microsoft.Practices.TransientFaultHandling.RetryLimitExceededException)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.Bind(System.Runtime.Serialization.ISerializable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.Constructor">
+            <summary>Sets the shim of RetryLimitExceededException.RetryLimitExceededException()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.ConstructorException">
+            <summary>Sets the shim of RetryLimitExceededException.RetryLimitExceededException(Exception innerException)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.ConstructorSerializationInfoStreamingContext">
+            <summary>Sets the shim of RetryLimitExceededException.RetryLimitExceededException(SerializationInfo info, StreamingContext context)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.ConstructorString">
+            <summary>Sets the shim of RetryLimitExceededException.RetryLimitExceededException(String message)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.ConstructorStringException">
+            <summary>Sets the shim of RetryLimitExceededException.RetryLimitExceededException(String message, Exception innerException)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryLimitExceededException.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy">
+            <summary>Shim type of Microsoft.Practices.TransientFaultHandling.RetryPolicy</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.#ctor(Microsoft.Practices.TransientFaultHandling.RetryPolicy)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ExecuteActionOf1ActionOfAsyncCallbackFuncOfIAsyncResultM0ActionOfM0ActionOfException``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Action{System.AsyncCallback},System.Func{System.IAsyncResult,``0},System.Action{``0},System.Action{System.Exception}})">
+            <summary>Sets the shim of RetryPolicy.ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Func`2&lt;IAsyncResult,!!0&gt; endAction, Action`1&lt;!!0&gt; successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ExecuteActionOf1FuncOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Func{``0},``0})">
+            <summary>Sets the shim of RetryPolicy.ExecuteAction(Func`1&lt;!!0&gt; func)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ExecuteAsyncOf1FuncOfTaskOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Func{System.Threading.Tasks.Task{``0}},System.Threading.Tasks.Task{``0}})">
+            <summary>Sets the shim of RetryPolicy.ExecuteAsync(Func`1&lt;Task`1&lt;!!0&gt;&gt; taskFunc)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ExecuteAsyncOf1FuncOfTaskOfM0CancellationToken``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken,System.Threading.Tasks.Task{``0}})">
+            <summary>Sets the shim of RetryPolicy.ExecuteAsync(Func`1&lt;Task`1&lt;!!0&gt;&gt; taskFunc, CancellationToken cancellationToken)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy._ExecuteActionb__9Of1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
+            <summary>Sets the shim of RetryPolicy.&lt;ExecuteAction&gt;b__9(!!0 _)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy._ExecuteActionb__aOf1Exception``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Exception})">
+            <summary>Sets the shim of RetryPolicy.&lt;ExecuteAction&gt;b__a(Exception _)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ConstructorITransientErrorDetectionStrategyInt32">
+            <summary>Sets the shim of RetryPolicy.RetryPolicy(ITransientErrorDetectionStrategy errorDetectionStrategy, Int32 retryCount)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ConstructorITransientErrorDetectionStrategyInt32TimeSpan">
+            <summary>Sets the shim of RetryPolicy.RetryPolicy(ITransientErrorDetectionStrategy errorDetectionStrategy, Int32 retryCount, TimeSpan retryInterval)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ConstructorITransientErrorDetectionStrategyInt32TimeSpanTimeSpan">
+            <summary>Sets the shim of RetryPolicy.RetryPolicy(ITransientErrorDetectionStrategy errorDetectionStrategy, Int32 retryCount, TimeSpan initialInterval, TimeSpan increment)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ConstructorITransientErrorDetectionStrategyInt32TimeSpanTimeSpanTimeSpan">
+            <summary>Sets the shim of RetryPolicy.RetryPolicy(ITransientErrorDetectionStrategy errorDetectionStrategy, Int32 retryCount, TimeSpan minBackoff, TimeSpan maxBackoff, TimeSpan deltaBackoff)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ConstructorITransientErrorDetectionStrategyRetryStrategy">
+            <summary>Sets the shim of RetryPolicy.RetryPolicy(ITransientErrorDetectionStrategy errorDetectionStrategy, RetryStrategy retryStrategy)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ErrorDetectionStrategyGet">
+            <summary>Sets the shim of RetryPolicy.get_ErrorDetectionStrategy()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ErrorDetectionStrategySetITransientErrorDetectionStrategy">
+            <summary>Sets the shim of RetryPolicy.set_ErrorDetectionStrategy(ITransientErrorDetectionStrategy value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ExecuteActionAction">
+            <summary>Sets the shim of RetryPolicy.ExecuteAction(Action action)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ExecuteActionActionOfAsyncCallbackActionOfIAsyncResultActionActionOfException">
+            <summary>Sets the shim of RetryPolicy.ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Action`1&lt;IAsyncResult&gt; endAction, Action successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ExecuteAsyncFuncOfTask">
+            <summary>Sets the shim of RetryPolicy.ExecuteAsync(Func`1&lt;Task&gt; taskAction)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.ExecuteAsyncFuncOfTaskCancellationToken">
+            <summary>Sets the shim of RetryPolicy.ExecuteAsync(Func`1&lt;Task&gt; taskAction, CancellationToken cancellationToken)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.OnRetryingInt32ExceptionTimeSpan">
+            <summary>Sets the shim of RetryPolicy.OnRetrying(Int32 retryCount, Exception lastError, TimeSpan delay)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.RetryStrategyGet">
+            <summary>Sets the shim of RetryPolicy.get_RetryStrategy()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.RetryStrategySetRetryStrategy">
+            <summary>Sets the shim of RetryPolicy.set_RetryStrategy(RetryStrategy value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.RetryingAddEventHandlerOfRetryingEventArgs">
+            <summary>Sets the shim of RetryPolicy.add_Retrying(EventHandler`1&lt;RetryingEventArgs&gt; value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.RetryingRemoveEventHandlerOfRetryingEventArgs">
+            <summary>Sets the shim of RetryPolicy.remove_Retrying(EventHandler`1&lt;RetryingEventArgs&gt; value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.StaticConstructor">
+            <summary>Sets the shim of RetryPolicy.RetryPolicy()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy._ExecuteActionb__3">
+            <summary>Sets the shim of RetryPolicy.&lt;ExecuteAction&gt;b__3()</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.ExecuteActionOf1ActionOfAsyncCallbackFuncOfIAsyncResultM0ActionOfM0ActionOfException``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{Microsoft.Practices.TransientFaultHandling.RetryPolicy,System.Action{System.AsyncCallback},System.Func{System.IAsyncResult,``0},System.Action{``0},System.Action{System.Exception}})">
+            <summary>Sets the shim of RetryPolicy.ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Func`2&lt;IAsyncResult,!!0&gt; endAction, Action`1&lt;!!0&gt; successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.ExecuteActionOf1FuncOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{Microsoft.Practices.TransientFaultHandling.RetryPolicy,System.Func{``0},``0})">
+            <summary>Sets the shim of RetryPolicy.ExecuteAction(Func`1&lt;!!0&gt; func)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.ExecuteAsyncOf1FuncOfTaskOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{Microsoft.Practices.TransientFaultHandling.RetryPolicy,System.Func{System.Threading.Tasks.Task{``0}},System.Threading.Tasks.Task{``0}})">
+            <summary>Sets the shim of RetryPolicy.ExecuteAsync(Func`1&lt;Task`1&lt;!!0&gt;&gt; taskFunc)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.ExecuteAsyncOf1FuncOfTaskOfM0CancellationToken``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{Microsoft.Practices.TransientFaultHandling.RetryPolicy,System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken,System.Threading.Tasks.Task{``0}})">
+            <summary>Sets the shim of RetryPolicy.ExecuteAsync(Func`1&lt;Task`1&lt;!!0&gt;&gt; taskFunc, CancellationToken cancellationToken)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.ErrorDetectionStrategyGet">
+            <summary>Sets the shim of RetryPolicy.get_ErrorDetectionStrategy()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.ErrorDetectionStrategySetITransientErrorDetectionStrategy">
+            <summary>Sets the shim of RetryPolicy.set_ErrorDetectionStrategy(ITransientErrorDetectionStrategy value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.ExecuteActionAction">
+            <summary>Sets the shim of RetryPolicy.ExecuteAction(Action action)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.ExecuteActionActionOfAsyncCallbackActionOfIAsyncResultActionActionOfException">
+            <summary>Sets the shim of RetryPolicy.ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Action`1&lt;IAsyncResult&gt; endAction, Action successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.ExecuteAsyncFuncOfTask">
+            <summary>Sets the shim of RetryPolicy.ExecuteAsync(Func`1&lt;Task&gt; taskAction)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.ExecuteAsyncFuncOfTaskCancellationToken">
+            <summary>Sets the shim of RetryPolicy.ExecuteAsync(Func`1&lt;Task&gt; taskAction, CancellationToken cancellationToken)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.OnRetryingInt32ExceptionTimeSpan">
+            <summary>Sets the shim of RetryPolicy.OnRetrying(Int32 retryCount, Exception lastError, TimeSpan delay)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.RetryStrategyGet">
+            <summary>Sets the shim of RetryPolicy.get_RetryStrategy()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.RetryStrategySetRetryStrategy">
+            <summary>Sets the shim of RetryPolicy.set_RetryStrategy(RetryStrategy value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.RetryingAddEventHandlerOfRetryingEventArgs">
+            <summary>Sets the shim of RetryPolicy.add_Retrying(EventHandler`1&lt;RetryingEventArgs&gt; value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy.AllInstances.RetryingRemoveEventHandlerOfRetryingEventArgs">
+            <summary>Sets the shim of RetryPolicy.remove_Retrying(EventHandler`1&lt;RetryingEventArgs&gt; value)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1">
+            <summary>Shim type of Microsoft.Practices.TransientFaultHandling.RetryPolicy`1</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1.#ctor(Microsoft.Practices.TransientFaultHandling.RetryPolicy{`0})">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1.ConstructorInt32">
+            <summary>Sets the shim of RetryPolicy`1.RetryPolicy`1(Int32 retryCount)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1.ConstructorInt32TimeSpan">
+            <summary>Sets the shim of RetryPolicy`1.RetryPolicy`1(Int32 retryCount, TimeSpan retryInterval)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1.ConstructorInt32TimeSpanTimeSpan">
+            <summary>Sets the shim of RetryPolicy`1.RetryPolicy`1(Int32 retryCount, TimeSpan initialInterval, TimeSpan increment)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1.ConstructorInt32TimeSpanTimeSpanTimeSpan">
+            <summary>Sets the shim of RetryPolicy`1.RetryPolicy`1(Int32 retryCount, TimeSpan minBackoff, TimeSpan maxBackoff, TimeSpan deltaBackoff)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1.ConstructorRetryStrategy">
+            <summary>Sets the shim of RetryPolicy`1.RetryPolicy`1(RetryStrategy retryStrategy)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryPolicy`1.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy">
+            <summary>Shim type of Microsoft.Practices.TransientFaultHandling.RetryStrategy</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.#ctor(Microsoft.Practices.TransientFaultHandling.RetryStrategy)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.ConstructorStringBoolean">
+            <summary>Sets the shim of RetryStrategy.RetryStrategy(String name, Boolean firstFastRetry)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.FastFirstRetryGet">
+            <summary>Sets the shim of RetryStrategy.get_FastFirstRetry()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.FastFirstRetrySetBoolean">
+            <summary>Sets the shim of RetryStrategy.set_FastFirstRetry(Boolean value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.NameGet">
+            <summary>Sets the shim of RetryStrategy.get_Name()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.NameSetString">
+            <summary>Sets the shim of RetryStrategy.set_Name(String value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.StaticConstructor">
+            <summary>Sets the shim of RetryStrategy.RetryStrategy()</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.AllInstances.FastFirstRetryGet">
+            <summary>Sets the shim of RetryStrategy.get_FastFirstRetry()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.AllInstances.FastFirstRetrySetBoolean">
+            <summary>Sets the shim of RetryStrategy.set_FastFirstRetry(Boolean value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.AllInstances.NameGet">
+            <summary>Sets the shim of RetryStrategy.get_Name()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryStrategy.AllInstances.NameSetString">
+            <summary>Sets the shim of RetryStrategy.set_Name(String value)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs">
+            <summary>Shim type of Microsoft.Practices.TransientFaultHandling.RetryingEventArgs</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.#ctor(Microsoft.Practices.TransientFaultHandling.RetryingEventArgs)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.ConstructorInt32TimeSpanException">
+            <summary>Sets the shim of RetryingEventArgs.RetryingEventArgs(Int32 currentRetryCount, TimeSpan delay, Exception lastException)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.CurrentRetryCountGet">
+            <summary>Sets the shim of RetryingEventArgs.get_CurrentRetryCount()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.CurrentRetryCountSetInt32">
+            <summary>Sets the shim of RetryingEventArgs.set_CurrentRetryCount(Int32 value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.DelayGet">
+            <summary>Sets the shim of RetryingEventArgs.get_Delay()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.DelaySetTimeSpan">
+            <summary>Sets the shim of RetryingEventArgs.set_Delay(TimeSpan value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.LastExceptionGet">
+            <summary>Sets the shim of RetryingEventArgs.get_LastException()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.LastExceptionSetException">
+            <summary>Sets the shim of RetryingEventArgs.set_LastException(Exception value)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.AllInstances.CurrentRetryCountGet">
+            <summary>Sets the shim of RetryingEventArgs.get_CurrentRetryCount()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.AllInstances.CurrentRetryCountSetInt32">
+            <summary>Sets the shim of RetryingEventArgs.set_CurrentRetryCount(Int32 value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.AllInstances.DelayGet">
+            <summary>Sets the shim of RetryingEventArgs.get_Delay()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.AllInstances.DelaySetTimeSpan">
+            <summary>Sets the shim of RetryingEventArgs.set_Delay(TimeSpan value)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.AllInstances.LastExceptionGet">
+            <summary>Sets the shim of RetryingEventArgs.get_LastException()</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.ShimRetryingEventArgs.AllInstances.LastExceptionSetException">
+            <summary>Sets the shim of RetryingEventArgs.set_LastException(Exception value)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.StubExponentialBackoff">
+            <summary>Stub type of Microsoft.Practices.TransientFaultHandling.ExponentialBackoff</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubExponentialBackoff.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubExponentialBackoff.#ctor(System.Int32,System.TimeSpan,System.TimeSpan,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubExponentialBackoff.#ctor(System.String,System.Int32,System.TimeSpan,System.TimeSpan,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubExponentialBackoff.#ctor(System.String,System.Int32,System.TimeSpan,System.TimeSpan,System.TimeSpan,System.Boolean)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubExponentialBackoff.GetShouldRetry">
+            <summary>Sets the stub of ExponentialBackoff.GetShouldRetry()</summary>
+        </member>
+        <member name="F:Microsoft.Practices.TransientFaultHandling.Fakes.StubExponentialBackoff.GetShouldRetry01">
+            <summary>Sets the stub of ExponentialBackoff.GetShouldRetry()</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubExponentialBackoff.InitializeStub">
+            <summary>Initializes a new instance of type StubExponentialBackoff</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubExponentialBackoff.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubExponentialBackoff.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubExponentialBackoff.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval">
+            <summary>Stub type of Microsoft.Practices.TransientFaultHandling.FixedInterval</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval.#ctor(System.Int32)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval.#ctor(System.Int32,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval.#ctor(System.String,System.Int32,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval.#ctor(System.String,System.Int32,System.TimeSpan,System.Boolean)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval.GetShouldRetry">
+            <summary>Sets the stub of FixedInterval.GetShouldRetry()</summary>
+        </member>
+        <member name="F:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval.GetShouldRetry01">
+            <summary>Sets the stub of FixedInterval.GetShouldRetry()</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval.InitializeStub">
+            <summary>Initializes a new instance of type StubFixedInterval</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubFixedInterval.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.StubITransientErrorDetectionStrategy">
+            <summary>Stub type of Microsoft.Practices.TransientFaultHandling.ITransientErrorDetectionStrategy</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubITransientErrorDetectionStrategy.#ctor">
+            <summary>Initializes a new instance of type StubITransientErrorDetectionStrategy</summary>
+        </member>
+        <member name="F:Microsoft.Practices.TransientFaultHandling.Fakes.StubITransientErrorDetectionStrategy.IsTransientException">
+            <summary>Sets the stub of ITransientErrorDetectionStrategy.IsTransient(Exception ex)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubITransientErrorDetectionStrategy.mptfhc::Microsoft#Practices#TransientFaultHandling#ITransientErrorDetectionStrategy#IsTransient(System.Exception)">
+            <summary>Sets the stub of ITransientErrorDetectionStrategy.IsTransient(Exception ex)</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.StubIncremental">
+            <summary>Stub type of Microsoft.Practices.TransientFaultHandling.Incremental</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubIncremental.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubIncremental.#ctor(System.Int32,System.TimeSpan,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubIncremental.#ctor(System.String,System.Int32,System.TimeSpan,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubIncremental.#ctor(System.String,System.Int32,System.TimeSpan,System.TimeSpan,System.Boolean)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubIncremental.GetShouldRetry">
+            <summary>Sets the stub of Incremental.GetShouldRetry()</summary>
+        </member>
+        <member name="F:Microsoft.Practices.TransientFaultHandling.Fakes.StubIncremental.GetShouldRetry01">
+            <summary>Sets the stub of Incremental.GetShouldRetry()</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubIncremental.InitializeStub">
+            <summary>Initializes a new instance of type StubIncremental</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubIncremental.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubIncremental.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubIncremental.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy">
+            <summary>Stub type of Microsoft.Practices.TransientFaultHandling.RetryPolicy</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.#ctor(Microsoft.Practices.TransientFaultHandling.ITransientErrorDetectionStrategy,Microsoft.Practices.TransientFaultHandling.RetryStrategy)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.#ctor(Microsoft.Practices.TransientFaultHandling.ITransientErrorDetectionStrategy,System.Int32)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.#ctor(Microsoft.Practices.TransientFaultHandling.ITransientErrorDetectionStrategy,System.Int32,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.#ctor(Microsoft.Practices.TransientFaultHandling.ITransientErrorDetectionStrategy,System.Int32,System.TimeSpan,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.#ctor(Microsoft.Practices.TransientFaultHandling.ITransientErrorDetectionStrategy,System.Int32,System.TimeSpan,System.TimeSpan,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.ExecuteAction(System.Action)">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Action action)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.ExecuteAction``1(System.Action{System.AsyncCallback},System.Func{System.IAsyncResult,``0},System.Action{``0},System.Action{System.Exception})">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Func`2&lt;IAsyncResult,!!0&gt; endAction, Action`1&lt;!!0&gt; successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.ExecuteAction``1(System.Func{``0})">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Func`1&lt;!!0&gt; func)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.ExecuteAction(System.Action{System.AsyncCallback},System.Action{System.IAsyncResult},System.Action,System.Action{System.Exception})">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Action`1&lt;IAsyncResult&gt; endAction, Action successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="F:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.ExecuteActionAction">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Action action)</summary>
+        </member>
+        <member name="F:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.ExecuteActionActionOfAsyncCallbackActionOfIAsyncResultActionActionOfException">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Action`1&lt;IAsyncResult&gt; endAction, Action successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.ExecuteActionOf1ActionOfAsyncCallbackFuncOfIAsyncResultM0ActionOfM0ActionOfException``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Action{System.AsyncCallback},System.Func{System.IAsyncResult,``0},System.Action{``0},System.Action{System.Exception}})">
+            <summary>Sets stubs of ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Func`2&lt;IAsyncResult,!!0&gt; endAction, Action`1&lt;!!0&gt; successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.ExecuteActionOf1FuncOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Func{``0},``0})">
+            <summary>Sets stubs of ExecuteAction(Func`1&lt;!!0&gt; func)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.InitializeStub">
+            <summary>Initializes a new instance of type StubRetryPolicy</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.OnRetrying(System.Int32,System.Exception,System.TimeSpan)">
+            <summary>Sets the stub of RetryPolicy.OnRetrying(Int32 retryCount, Exception lastError, TimeSpan delay)</summary>
+        </member>
+        <member name="F:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.OnRetryingInt32ExceptionTimeSpan">
+            <summary>Sets the stub of RetryPolicy.OnRetrying(Int32 retryCount, Exception lastError, TimeSpan delay)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1">
+            <summary>Stub type of Microsoft.Practices.TransientFaultHandling.RetryPolicy`1</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.#ctor(Microsoft.Practices.TransientFaultHandling.RetryStrategy)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.#ctor(System.Int32)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.#ctor(System.Int32,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.#ctor(System.Int32,System.TimeSpan,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.#ctor(System.Int32,System.TimeSpan,System.TimeSpan,System.TimeSpan)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.ExecuteAction(System.Action)">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Action action)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.ExecuteAction``1(System.Action{System.AsyncCallback},System.Func{System.IAsyncResult,``0},System.Action{``0},System.Action{System.Exception})">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Func`2&lt;IAsyncResult,!!0&gt; endAction, Action`1&lt;!!0&gt; successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.ExecuteAction``1(System.Func{``0})">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Func`1&lt;!!0&gt; func)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.ExecuteAction(System.Action{System.AsyncCallback},System.Action{System.IAsyncResult},System.Action,System.Action{System.Exception})">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Action`1&lt;IAsyncResult&gt; endAction, Action successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="F:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.ExecuteActionAction">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Action action)</summary>
+        </member>
+        <member name="F:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.ExecuteActionActionOfAsyncCallbackActionOfIAsyncResultActionActionOfException">
+            <summary>Sets the stub of RetryPolicy.ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Action`1&lt;IAsyncResult&gt; endAction, Action successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.ExecuteActionOf1ActionOfAsyncCallbackFuncOfIAsyncResultM0ActionOfM0ActionOfException``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Action{System.AsyncCallback},System.Func{System.IAsyncResult,``0},System.Action{``0},System.Action{System.Exception}})">
+            <summary>Sets stubs of ExecuteAction(Action`1&lt;AsyncCallback&gt; beginAction, Func`2&lt;IAsyncResult,!!0&gt; endAction, Action`1&lt;!!0&gt; successHandler, Action`1&lt;Exception&gt; faultHandler)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.ExecuteActionOf1FuncOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Func{``0},``0})">
+            <summary>Sets stubs of ExecuteAction(Func`1&lt;!!0&gt; func)</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.InitializeStub">
+            <summary>Initializes a new instance of type StubRetryPolicy</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.OnRetrying(System.Int32,System.Exception,System.TimeSpan)">
+            <summary>Sets the stub of RetryPolicy.OnRetrying(Int32 retryCount, Exception lastError, TimeSpan delay)</summary>
+        </member>
+        <member name="F:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.OnRetryingInt32ExceptionTimeSpan">
+            <summary>Sets the stub of RetryPolicy.OnRetrying(Int32 retryCount, Exception lastError, TimeSpan delay)</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryPolicy`1.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryStrategy">
+            <summary>Stub type of Microsoft.Practices.TransientFaultHandling.RetryStrategy</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryStrategy.#ctor(System.String,System.Boolean)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryStrategy.GetShouldRetry">
+            <summary>Sets the stub of RetryStrategy.GetShouldRetry()</summary>
+        </member>
+        <member name="F:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryStrategy.GetShouldRetry01">
+            <summary>Sets the stub of RetryStrategy.GetShouldRetry()</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryStrategy.InitializeStub">
+            <summary>Initializes a new instance of type StubRetryStrategy</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryStrategy.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryStrategy.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryStrategy.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryingEventArgs">
+            <summary>Stub type of Microsoft.Practices.TransientFaultHandling.RetryingEventArgs</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryingEventArgs.#ctor(System.Int32,System.TimeSpan,System.Exception)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryingEventArgs.InitializeStub">
+            <summary>Initializes a new instance of type StubRetryingEventArgs</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryingEventArgs.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryingEventArgs.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Microsoft.Practices.TransientFaultHandling.Fakes.StubRetryingEventArgs.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+    </members>
+</doc>
