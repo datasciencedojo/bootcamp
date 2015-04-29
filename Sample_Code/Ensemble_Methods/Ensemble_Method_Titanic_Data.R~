@@ -1,0 +1,26 @@
+###################################################################################
+## This code is part of Data Science Dojo's bootcamp
+## Copyright (C) 2015
+
+## Objective: Machine learning of Titanic data's survival classification with ensemble methods (random forest and boosted decision tree)
+## Data source: Titanic data set
+##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Ensemble_Methods
+## Please install "randomForest" package: install.packages("randomForest")
+###################################################################################
+
+## load the rpart library
+library(randomForest)
+
+## DATA EXPLORATION AND CLEANING
+## load the iris data in R
+titanic.data <- read.csv("Titanic_data.csv", header=TRUE)
+## explore the data set
+dim(titanic.data)
+str(titanic.data)
+summary(titanic.data)
+## ignore the PassengerID
+titanic.data <- titanic.data[, -1]
+titanic.data$Survived <- as.factor(titanic.data$Survived)
+## there are some NAs in age,
+titanic.data$Age[is.na(titanic.data$Age)] = median(titanic.data$Age, na.rm=TRUE)
+
