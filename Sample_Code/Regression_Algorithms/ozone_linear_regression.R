@@ -32,9 +32,9 @@ plot(ozone.model)
 
 ## MODEL EVALUATION
 ## predict using linear regression model
-ozone.pred <- predict(ozone.model, ozone.test)
+ozone.test.predictions <- predict(ozone.model, ozone.test)
 ## define error
-error <- ozone.test$ozone - ozone.pred
+error <- ozone.test$ozone - ozone.test.predictions
 ## calculate Root Mean Squared Error (RMSE)
 ozone.rmse <- sqrt(mean(error^2))
 ozone.rmse

@@ -23,13 +23,13 @@ zip.data <- zip.data[random.rows,]
 ## scale the data
 zip.data <- as.data.frame(scale(zip.data[,-1]))
 ## K-means clustering model
-zip.km <- kmeans(zip.data, 10, iter.max = 100, nstart = 25)
-zip.km
+zip.kmean <- kmeans(zip.data, 10, iter.max = 100, nstart = 25)
+zip.kmean
 
 ## VISUALIZE THE CLUSTERS
 ## subset out each cluster to investigate the data
-zip.km.clust<- lapply(1:10, function(nc) zip.data[zip.km$cluster==nc, 1])  
-zip.km.clust
+zip.kmean.clusters <- lapply(1:10, function(nc) zip.data[zip.kmean$cluster==nc, 1])  
+zip.kmean.clusters
 ##  plot to visualize the clusters
-plotcluster(zip.scale, zip.KM$cluster, xlab="dc1", ylab="dc2")
+plotcluster(zip.data, zip.kmean$cluster, xlab="dc1", ylab="dc2")
 title(main="Discriminant Projection Plot of 10 Hand-Written Digits")

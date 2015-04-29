@@ -37,11 +37,11 @@ text(iris.model, use.n = TRUE)
 
 ## MODEL EVALUATION
 ## make prediction using decision model
-iris.pred <- predict(iris.model, iris.test, type = "class")
+iris.test.predictions <- predict(iris.model, iris.test, type = "class")
 ## extract out the observations in testing set
-iris.obs <- iris.test$Species
+iris.test.observations <- iris.test$Species
 ## show the confusion matrix
-confusion.matrix <- table(iris.pred, iris.obs)
+confusion.matrix <- table(iris.test.predictions, iris.test.observations)
 confusion.matrix
 
 

@@ -35,20 +35,21 @@ zip.model
 
 ## MODEL EVALUATION
 ## to predict using logistic regression model, probablilities obtained
-zip.pred.prob <- predict(zip.model, zip.test, type="response")
+zip.test.predictions.probabilities <- predict(zip.model, zip.test, type="response")
 ## visualize partial prediction output (the probabilities)
-head(zip.pred.prob)
+head(zip.test.predictions.probabilities)
 ## assign labels with decision rule, >0.5= "2", <0.5="3"
-zip.pred <- ifelse(zip.pred.prob >= 0.5, "3", "2")
+zip.test.predictions <- ifelse(zip.test.predictions.probabilities >= 0.5, "3", "2")
 ## extract out true label for zip.testing dataset
-zip.obs <- as.character(zip.test[,1])
+zip.test.observations <- as.character(zip.test[,1])
 ## show the confusion table
-confusion.matrix <- table(zip.pred, zip.obs)
+confusion.matrix <- table(zip.test.predictions, zip.test.observations)
 confusion.matrix
 ## extract out the row that has wrong prediction
-error.pred <- subset(zip.pred.table, zip.obs != zip.pred)
-error.pred
-## visualize error prediction from both linear and logistic regression
+zip.predictions.table <- cbind(zip.test.predictions, zip.test.observations)
+wrong.predictions <- subset(zip.predictions.table, zip.test.observations != zip.test.predictions)
+wrong.predictions
+## visualize one of the wrong prediction from logistic regression
 levelplot(matrix(zip.test[280,2:257],nrow=16, byrow=TRUE))
 
 

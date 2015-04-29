@@ -37,12 +37,12 @@ head(zip.model$residuals)
 
 ## MODEL EVALUATION
 ## To predict using linear regression model (round the number as the response)
-zip.pred <- predict(zip.model, zip.test)
-zip.pred <- round(zip.pred, digit=0)
+zip.test.predictions <- predict(zip.model, zip.test)
+zip.test.predictions <- round(zip.test.predictions, digit=0)
 ## extract out true label for zip.testing dataset
-zip.obs <- zip.test[,1]
+zip.test.observations <- zip.test[,1]
 ## define error
-error <- zip.obs - zip.pred
+error <- zip.test.observations - zip.test.predictions
 ## calculate Root Mean Squared Error (RMSE)
 ozone.rmse <- sqrt(mean(error^2))
 ozone.rmse
