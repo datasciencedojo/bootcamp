@@ -1,0 +1,254 @@
+---
+title: "Data Exploration using R"
+author: "Yuhui Zhang, and Raja Iqbal"
+mode: standalone
+output: html_document
+framework: flowtime
+url:
+  lib: /home/yuhui/Copy/YDSDojo/bootcamp/slidify/slidifyExamples/libraries
+---
+
+# Titanic tragedy data
+
+<img src="Titanic.jpg", style="width:791px;height:509px"">
+
+---
+
+## Reading RAW training data
+* Download the data set "Titanic_train.csv" from
+https://raw.githubusercontent.com/datasciencedojo/datasets/master/Titanic_train.csv
+* Set working directory of R to the directory of the file using setwd()
+```{r}
+titanic = read.csv("Titanic_train.csv")
+```
+
+***
+
+## Look at the first few rows
+What would be some good features to consider here?
+
+```{r}
+options(width = 110)
+head(titanic)
+```
+
+***
+
+## What is the data type of each column?
+```{r}
+sapply(titanic,class)
+```
+
+***
+
+## Converting class label to a factor
+```{r}
+titanic$Survived = factor(titanic$Survived, labels=c("died", "survived"))
+titanic$Embarked = factor(titanic$Embarked, labels=c("unkown", "Cherbourg", "Queenstown", "Southampton"))
+sapply(titanic,class)
+str(titanic$Survived)
+str(titanic$Sex)
+```
+
+---
+
+## Class distribution - PIE Charts
+```{r, fig.width=3, fig.height=3}
+survivedTable = table(titanic$Survived)
+survivedTable
+par(mar = c(0, 0, 0, 0), oma = c(0, 0, 0, 0))
+pie(survivedTable,labels=c("Died","Survived"))
+```
+
+***
+
+## Is Sex a good predictor?
+<!-- plotting area: http://research.stowers-institute.org/mcm/efg/R/Graphics/Basics/mar-oma/index.htm -->
+```{r, fig.width=14, fig.height=4.5}
+male = titanic[titanic$Sex=="male",]
+female = titanic[titanic$Sex=="female",]
+par(mfrow = c(1, 2), mar = c(0, 0, 2, 0), oma = c(0, 1, 0, 1))
+pie(table(male$Survived),labels=c("Dead","Survived"),  main="Survival Portion Among Men")
+pie(table(female$Survived),labels=c("Dead","Survived"), main="Survival Portion Among Women")
+```
+
+---
+
+## Is Age a good predictor?
+```{r}
+Age <- titanic$Age; summary(Age)
+```
+
+How about summary segmented by **survival**
+```{r}
+summary(titanic[titanic$Survived=="died",]$Age)
+summary(titanic[titanic$Survived=="survived",]$Age)
+```
+
+***
+
+## Age distribution by Survival and Sex
+```{r, fig.width=14, fig.height=6}
+par(mfrow = c(1, 2), mar = c(4, 4, 2, 2), oma = c(1, 1, 1, 1))
+boxplot(titanic$Age~titanic$Sex, main="Age Distribution By Gender",col=c("red","green"))
+boxplot(titanic$Age~titanic$Survived, main="Age Distribution By Survival",col=c("red","green"),
+        xlab="0:Died 1:Survived",ylab="Age")
+```
+
+***
+
+## Histogram of Age
+```{r, fig.width=6, fig.height=6}
+hist(Age, col="blue", xlab="Age", ylab="Frequency",
+     main = "Distribution of Passenger Ages on Titanic")
+```
+
+***
+
+## Kernel density plot of age
+```{r, fig.width=6, fig.height=5.5}
+d = density(na.omit(Age)) # density(Age) won't work, need to omit all NAs
+plot(d, main = "kernel density of Ages of Titanic Passengers")
+polygon(d, col="red", border="blue")
+```
+
+***
+
+## Comparison of density plots of Age with different Sex
+```{r, echo=FALSE}
+titanic_na_removed = na.omit(titanic)
+library(sm) # reference package, may need you to install sm library first
+sm.density.compare(titanic_na_removed$Age, titanic_na_removed$Sex,xlab="Age of Passenger")
+title(main="Kernel Density Plot of Ages By Sex")
+colfill<-c(2:(2+ length(levels(titanic_na_removed$Sex))))
+legend("topright", legend=levels(titanic_na_removed$Sex), fill=colfill)
+```
+
+***
+
+## Did Age have an impact on survival?
+```{r, echo=FALSE, fig.width=23, fig.height=8}
+library(sm) # reference package, may need you to install sm library first
+par(mfrow = c(1, 3), mar = c(4, 4, 5, 2), oma = c(1, 1, 2, 1))
+
+plot(d, main = "kernel density of Ages of Titanic Passengers", cex.main=3)
+polygon(d, col="red", border="blue")
+
+sm.density.compare(titanic_na_removed$Age, titanic_na_removed$Sex,xlab="Age of Passenger")
+title(main="Kernel Density Plot of Ages By Sex", cex.main=3)
+colfill<-c(2:(2+ length(levels(titanic_na_removed$Sex))))
+legend("topright", legend=levels(titanic_na_removed$Sex), fill=colfill)
+
+sm.density.compare(titanic_na_removed$Age, titanic_na_removed$Survived,xlab="Age of Passenger")
+title(main="Kernel Density Plot of Ages By Survival", cex.main=3)
+colfill<-c(2:(2+ length(levels(titanic_na_removed$Survived))))
+legend("topright", legend=levels(titanic_na_removed$Survived), fill=colfill)
+```
+
+***
+
+## Create categorical groupings: Adult vs Child
+An example of **feature engineering**!
+```{r}
+## Multi dimensional comparison            
+Child <- titanic$Age # Isolating age.
+## Now we need to create categories: NA = Unknown, 1 = Child, 2 = Adult
+## Every age below 13 (exclusive) is classified into age group 1
+Child[Child<13] <- 1
+## Every child 13 or above is classified into age group 2
+Child[Child>=13] <- 2
+```
+```{r}
+# Use labels instead of 0's and 1's
+Child[Child==1] <- "Child"
+Child[Child==2] <- "Adult"
+# Appends the new column to the titanic dataset
+titanic_with_child_column <- cbind(titanic, Child)
+# Removes rows where age is NA
+titanic_with_child_column <- titanic_with_child_column[!is.na(titanic_with_child_column$Child),]
+```
+
+---
+
+## Fare matters?
+```{r, echo=FALSE, fig.width=8, fig.height=6.5}
+library(ggplot2)
+ggplot(titanic_with_child_column, aes(y=Fare, x=Survived)) + geom_boxplot() + facet_grid(Sex~Child)
+## Plot may differ depending  # on your definition of a child
+```
+***
+
+## How about fare, ship class, port embarkation?
+```{r, echo=FALSE, fig.width=17, fig.height=5}
+library(ggplot2)
+titanic$Pclass = as.factor(titanic$Pclass)
+ggplot(titanic, aes(y=Fare, x=Pclass)) + geom_boxplot() + facet_grid(~Embarked)
+
+```
+
+---
+
+# Diamond data
+
+<img src="Diamond.jpg", style="width:791px;height:509px"">
+
+---
+
+## Overview of the diamond data
+```{r}
+data(diamonds) # loading diamonds data set
+head(diamonds, 16) # first few rows of diamond data set
+```
+
+***
+
+## Histogram of carat
+```{r, fig.width=8, fig.height=5}
+library(ggplot2)
+ggplot(data=diamonds) + geom_histogram(aes(x=carat))
+```
+
+***
+
+## Density plot of carat
+```{r, fig.width=8, fig.height=5}
+ggplot(data=diamonds) + 
+geom_density(aes(x=carat),fill="gray50")
+```
+
+***
+
+## Scatter plots (carat vs. price)
+```{r, fig.width=9, fig.height=6}
+ggplot(diamonds, aes(x=carat,y=price)) + geom_point()
+```
+
+***
+
+## Carat with colors
+```{r, fig.width=9, fig.height=6}
+g = ggplot(diamonds, aes(x=carat, y=price)) # saving first layer as variable
+g + geom_point(aes(color=color)) # rendering first layer and adding another layer
+```
+
+***
+
+## Carat with colors (more details)
+```{r, fig.width=10, fig.height=7}
+g + geom_point(aes(color=color)) + facet_wrap(~color)
+```
+
+***
+
+## Let's consider cut and clarity
+```{r, fig.width=15, fig.height=8, echo=FALSE}
+g + geom_point(aes(color=color)) + facet_grid(cut~clarity)
+```
+
+***
+
+## Your trun!
+What is your knowledge of diamond's price after exploring this data?
+
+<img src="DiamondExport.jpg", style="width:568px;height:392px"">
+

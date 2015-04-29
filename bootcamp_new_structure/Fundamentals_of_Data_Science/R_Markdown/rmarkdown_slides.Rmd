@@ -1,0 +1,73 @@
+---
+title: "R Markdown"
+author: "Yuhui Zhang"
+mode: standalone
+output: word_document
+framework: flowtime
+url:
+  lib: /home/yuhui/Copy/YDSDojo/bootcamp/slidify/slidifyExamples/libraries
+pdf_document:
+    toc: true  
+---
+
+
+<!-- no space between code and its results -->
+```{r, echo=FALSE}
+library(knitr)
+hook1 <- function(x){ gsub("```\n*```r*\n*", "", x) }
+hook2 <- function(x){ gsub("```\n+```\n", "", x) }
+## knit_hooks$set(document = hook2)      
+```
+
+# Tell your story - R Markdown
+* R Markdown is an authoring format that enables easy creation of dynamic documents, presentations, and reports from R.  
+* It combines the core syntax of markdown (an easy-to-write plain text format) with embedded R code chunks that are run so their output can be included in the final document.  
+* Many available output formats including HTML, PDF, and MS Word
+* **Installation**  
+  Use RStudio: already installed  
+  Outside of RStudio: install.packages("rmarkdown"). A recent version of pandoc (>= 1.12.3) is also required. See https://github.com/rstudio/rmarkdown/blob/master/PANDOC.MD to install it.
+
+***
+
+## Check out Markdown first
+> Markdown is a markup language with plain text formatting syntax designed so that it can be converted to HTML and many other formats using a tool by the same name.
+
+One minute you get the point, and always check the cheat sheets  
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lists
+
+***
+
+## R Markdown
+* YAML header
+* Edit Markdown, and R chunks
+* Run!  
+  RStudio: knitr button  
+  Command line: render("file.Rmd")  
+
+R code chunks:
+http://rmarkdown.rstudio.com/authoring_rcodechunks.html  
+
+Cheat sheet of rmarkdown:  
+http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf
+
+***
+
+## Then, R Markdown sample code
+Download the template:  
+https://github.com/datasciencedojo/datasets/blob/master/rmarkdownd_template.Rmd
+
+---
+
+# Present your story of Titanic!
+Use
+* Titanic data
+* Plotting functions in R
+* R Markdown template
+* **The heart of data explorer**
+
+to write your story of Titanic...
+
+***
+
+## Hope this is inspiring :)
+[Titanic](https://vimeo.com/21941048)
