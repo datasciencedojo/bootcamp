@@ -3,25 +3,35 @@ _This repo includes slides and sample codes in DSD's bootcamp_
 
 **The folders are described as following:**  
 
-* Pre_Bootcamp  
+* Pre_Bootcamp         
   All slides of the webinar courses before the bootcamp.  
-  A great tutorial of Azure ML Studio can be found at: https://www.youtube.com/watch?v=tfYT1KdBh2Y
-* Fundamentals_of_Data_Science  
+  A great [tutorial of Azure ML Studio][https://www.youtube.com/watch?v=tfYT1KdBh2Y] was made by Data Science Dojo.
+* Introduction                          
+* Fundamentals_of_Data_Science     
   + Plotting_Systems
   + Data_Exploration
-  + R_Markdown
-* Decision_Tree
-* Logistic_Regression
-* Regression_Algorithms
+  + R_Markdown     
+* Decision_Tree                       
+* Logistic_Regression                   
+* Evaluating_Classification_Models    
+* Linear_Regression                     
+* Regularized_Regression
 * Unsupervised_Learning
-* Ensemble_Methods
-* Fundamentals_of_Big_Data_Engineering
-* Handling_Real-Time_and_Stream_Data
-* Distributed_Databases_and_Data_Warehousing
+* Ensemble_Methods                    
+* Azure_Labs                          
+* Fundamentals_of_Big_Data_Engineering  
+* NoSQL_Databases                        
+* Online_Experimentation_and_AB_Testing  
+* Stream_Processing_and_Event_Ingestion
+* Hack_Day                              
+* Course Outline.pdf                  
+* Bootcamp Software and Hardware.pdf  
+* Resources
+
 
 ## DSD Github style guide
 * Always revise this README.md file to make it consistent with your upload.
-* For the names of all folders and folders, replace space by "_"
+* For the names of all folders and folders, replace space by "_" (except PDF files and the experiments' files)
   For example: instead of "Fundamentals of Data Science", name it "Fundamentals_of_Data_Science".   
   Reason: command lines get confused by spase in some situations.
 * Write all README files as Markdown (.md) files as this one
