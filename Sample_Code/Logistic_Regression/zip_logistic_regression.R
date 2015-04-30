@@ -45,6 +45,9 @@ zip.test.observations <- as.character(zip.test[,1])
 ## show the confusion table
 confusion.matrix <- table(zip.test.predictions, zip.test.observations)
 confusion.matrix
+## calculate the error in testing set
+error <- (confusion.matrix[1, 2] + confusion.matrix[2, 1]) / sum(confusion.matrix)
+error
 ## extract out the row that has wrong prediction
 zip.predictions.table <- cbind(zip.test.predictions, zip.test.observations)
 wrong.predictions <- subset(zip.predictions.table, zip.test.observations != zip.test.predictions)

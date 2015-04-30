@@ -19,6 +19,7 @@ dim(kyphosis)
 
 ## BUILD MODEL 1
 ## randomly choose 80% of the data set as training data
+sed.seed(7)
 random.rows.train <- sample(1:nrow(kyphosis), 0.8*nrow(kyphosis), replace=F)
 kyphosis.train <- kyphosis[random.rows.train,]
 dim(kyphosis.train)
@@ -26,7 +27,8 @@ dim(kyphosis.train)
 random.rows.test <- setdiff(1:nrow(kyphosis),random.rows.train)
 kyphosis.test <- kyphosis[random.rows.test,]
 dim(kyphosis.test)
-## fitting decision model on training set 
+## fitting decision model on training set
+set.seed(1002)
 kyphosis.model1 <- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis.train)
 
 ## MODEL 1 EVALUATION
@@ -37,10 +39,15 @@ kyphosis.test.observations <- kyphosis.test[,1]
 ## show the confusion matrix
 confusion.matrix1 <- table(kyphosis.test.predictions1, kyphosis.test.observations)
 confusion.matrix1
+error1 <- 1 - sum(diag(confusion.matrix1)) / sum(confusion.matrix1)
+error1
 
 ## BUILD MODEL 2
-## fitting decision model on training set 
-kyphosis.model2 <- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis.train, parms = list(prior = c(0.65, 0.35), split = "information"))
+table(kyphosis.train$Kyphosis)
+## fitting decision model on training set
+set.seed(1002)
+kyphosis.model2 <- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis.train, parms = list(prior = c(0.8, 0.2)## , split = "gini"
+                                                                                     ))
 
 ## MODEL 2 EVALUATION
 ## make prediction using decision model
@@ -48,17 +55,21 @@ kyphosis.test.predictions2 <- predict(kyphosis.model2, kyphosis.test, type = "cl
 ## show the confusion matrix
 confusion.matrix2 <- table(kyphosis.test.predictions2, kyphosis.test.observations)
 confusion.matrix2
+error2 <- 1 - sum(diag(confusion.matrix2)) / sum(confusion.matrix2)
+error2
 
 ## BUILD MODEL 3
 ## fitting decision model on training set 
 kyphosis.model3 <- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis.train, control = rpart.control(cp = 0.05))
 
-## MODEL 2 EVALUATION
+## MODEL 3 EVALUATION
 ## make prediction using decision model
 kyphosis.test.predictions3 <- predict(kyphosis.model3, kyphosis.test, type = "class")
 ## show the confusion matrix
 confusion.matrix3 <- table(kyphosis.test.predictions3, kyphosis.test.observations)
 confusion.matrix3
+error3 <- 1 - sum(diag(confusion.matrix3)) / sum(confusion.matrix3)
+error3
 
 ## VISUALIZE THE THREE MODELS
 par(mfrow = c(1,3), xpd = TRUE)
