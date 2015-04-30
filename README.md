@@ -5,7 +5,7 @@ _This repo includes slides and sample codes in DSD's bootcamp_
 
 * Pre_Bootcamp         
   All slides of the webinar courses before the bootcamp.  
-  A great [tutorial of Azure ML Studio][https://www.youtube.com/watch?v=tfYT1KdBh2Y] was made by Data Science Dojo.
+  A great [tutorial of Azure ML Studio](https://www.youtube.com/watch?v=tfYT1KdBh2Y) was made by Data Science Dojo.
 * Introduction                          
 * Fundamentals_of_Data_Science     
   + Plotting_Systems
