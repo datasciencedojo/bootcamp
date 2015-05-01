@@ -41,3 +41,14 @@ ozone.rmse
 ## calculate Mean Absolute Error (MAE)
 ozone.mae <- mean(abs(error))
 ozone.mae
+## R squared (coefficient of determination)
+library(miscTools)
+resid <- ozone.test.predictions - ozone.test$ozone
+r2 <- rSquared(ozone.test.predictions, resid)
+r2
+
+## EXERCISE
+## In the MODEL EVALUATION session above, three metrics of the model are shown. They are all important metrics for regression problems. Check their definitions at Wikipedia to make sure you know the idea:
+## http://en.wikipedia.org/wiki/Root-mean-square_deviation
+## http://en.wikipedia.org/wiki/Mean_absolute_scaled_error
+## http://en.wikipedia.org/wiki/Coefficient_of_determination

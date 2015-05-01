@@ -8,7 +8,7 @@
 ## Please install "randomForest" package: install.packages("randomForest")
 ###################################################################################
 
-## load the rpart library
+## load the library
 library(randomForest)
 
 ## DATA EXPLORATION AND CLEANING

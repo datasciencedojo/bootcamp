@@ -38,7 +38,7 @@ head(zip.model$residuals)
 ## MODEL EVALUATION
 ## To predict using linear regression model (round the number as the response)
 zip.test.predictions <- predict(zip.model, zip.test)
-zip.test.predictions <- round(zip.test.predictions, digit=0)
+zip.test.predictions <- ifelse(zip.test.predictions >= 2.5, 3, 2)
 ## extract out true label for zip.testing dataset
 zip.test.observations <- zip.test[,1]
 ## define error
@@ -49,5 +49,13 @@ ozone.rmse
 ## calculate Mean Absolute Error (MAE)
 ozone.mae <- mean(abs(error))
 ozone.mae
+## show the confusion table
+confusion.matrix <- table(zip.test.predictions, zip.test.observations)
+confusion.matrix
+## calculate the error in testing set
+error <- (confusion.matrix[1, 2] + confusion.matrix[2, 1]) / sum(confusion.matrix)
+error
 
-
+## EXERCISE
+## This zip classification problem is already solved in our Logistic Regression session. But in this sample code, linear regression is used for this classification problem. And it gives us slightly better result (with less error)! What this tells us is: whenever a machine learning problem comes, choose algorithms by thinking about their principle, instead of the names! (I am not saying linear regression is better for this case, since the performance of logistic regression may be improved by fine-tuning the parameters.)
+## Compare linear regression, and linear logistic regression. What are the difference and similarities?

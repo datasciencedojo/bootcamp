@@ -8,7 +8,7 @@
 ## Please install "bst" package: install.packages("bst")
 ###################################################################################
 
-## load the rpart library
+## load the library
 library(bst)
 
 ## DATA EXPLORATION AND CLEANING

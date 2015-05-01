@@ -55,7 +55,12 @@ wrong.predictions
 ## visualize one of the wrong prediction from logistic regression
 levelplot(matrix(zip.test[280,2:257],nrow=16, byrow=TRUE))
 
-
-
-
-
+## EXERCISE
+## Besides confusion matrix and error, another important evaluation method of logistic regression is ROC curve. ROC curve is the curve of sensitivity as a function of specificity, when the threshold value of possibility increses from 0 to 1. See the Wikipedia page (http://en.wikipedia.org/wiki/Receiver_operating_characteristic) for more detailed introduction.
+## Now, let us plot the ROC curve for the above model. To do this you need:
+## 1. Download, load the pROC package by install.packages("pROC")
+## 2. Check out the examples of roc() function in http://www.inside-r.org/packages/cran/pROC/docs/pROC. Plot the ROC curve.
+## 3. The data you may want to use in roc() are:
+## zip.test.observations
+## and
+## zip.test.predictions.probabilities

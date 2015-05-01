@@ -7,7 +7,7 @@
 ## Please install "rpart" package: install.packages("rpart")
 ###################################################################################
 
-## load the rpart library
+## load the library
 library(rpart)
 
 ## DATA EXPLORATION
@@ -18,17 +18,17 @@ str(kyphosis)
 dim(kyphosis)
 
 ## BUILD MODEL 1
-## randomly choose 80% of the data set as training data
-sed.seed(7)
-random.rows.train <- sample(1:nrow(kyphosis), 0.8*nrow(kyphosis), replace=F)
+## randomly choose 60% of the data set as training data
+set.seed(17)
+random.rows.train <- sample(1:nrow(kyphosis), 0.6*nrow(kyphosis), replace=F)
 kyphosis.train <- kyphosis[random.rows.train,]
 dim(kyphosis.train)
-## select the other 20% as the testing data
+## select the other 40% as the testing data
 random.rows.test <- setdiff(1:nrow(kyphosis),random.rows.train)
 kyphosis.test <- kyphosis[random.rows.test,]
 dim(kyphosis.test)
 ## fitting decision model on training set
-set.seed(1002)
+set.seed(102)
 kyphosis.model1 <- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis.train)
 
 ## MODEL 1 EVALUATION
@@ -45,9 +45,8 @@ error1
 ## BUILD MODEL 2
 table(kyphosis.train$Kyphosis)
 ## fitting decision model on training set
-set.seed(1002)
-kyphosis.model2 <- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis.train, parms = list(prior = c(0.8, 0.2)## , split = "gini"
-                                                                                     ))
+set.seed(102)
+kyphosis.model2 <- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis.train, parms = list(split = "information"))
 
 ## MODEL 2 EVALUATION
 ## make prediction using decision model
@@ -59,8 +58,9 @@ error2 <- 1 - sum(diag(confusion.matrix2)) / sum(confusion.matrix2)
 error2
 
 ## BUILD MODEL 3
-## fitting decision model on training set 
-kyphosis.model3 <- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis.train, control = rpart.control(cp = 0.05))
+## fitting decision model on training set
+set.seed(102)
+kyphosis.model3 <- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis.train, control = rpart.control(cp = 0.1, minsplit = 10))
 
 ## MODEL 3 EVALUATION
 ## make prediction using decision model
@@ -83,4 +83,8 @@ plot(kyphosis.model3)
 title(main = "Model 3")
 text(kyphosis.model3, use.n = TRUE)
 
-
+## EXERCISE
+## Several parameters of rpart function can be used to tune the tree. Some parameters used in the above 3 models are:
+## parms = list(split = "information"))
+## rpart.control(cp = 0.1, minsplit = 10)
+## Check out the mannual of rpart at http://cran.r-project.org/web/packages/rpart/rpart.pdf. Fine-tune the paramters, could you build a better decision tree model with less error?

@@ -23,13 +23,16 @@ zip.data <- zip.data[random.rows,]
 ## scale the data
 zip.data <- as.data.frame(scale(zip.data[,-1]))
 ## K-means clustering model
-zip.kmean <- kmeans(zip.data, 10, iter.max = 100, nstart = 25)
-zip.kmean
+zip.model <- kmeans(zip.data, 10, iter.max = 100, nstart = 25)
+zip.model
 
 ## VISUALIZE THE CLUSTERS
 ## subset out each cluster to investigate the data
-zip.kmean.clusters <- lapply(1:10, function(nc) zip.data[zip.kmean$cluster==nc, 1])  
+zip.kmean.clusters <- lapply(1:10, function(nc) zip.data[zip.model$cluster==nc, 1])
 zip.kmean.clusters
 ##  plot to visualize the clusters
-plotcluster(zip.data, zip.kmean$cluster, xlab="dc1", ylab="dc2")
+plotcluster(zip.data, zip.model$cluster, xlab="dc1", ylab="dc2", method="dc")
 title(main="Discriminant Projection Plot of 10 Hand-Written Digits")
+
+## EXERCISE
+## This is a 256 dimensional clustering problem. But plotcluster() function enables us to see the clusters in a two-dimensional plane. To do this all the 256 features are transformed to discriminant coordinates, and only the first two main discriminant coordinates are kept. Check the Wikipedia page of linear discriminant analysis (http://en.wikipedia.org/wiki/Linear_discriminant_analysis) for more information.

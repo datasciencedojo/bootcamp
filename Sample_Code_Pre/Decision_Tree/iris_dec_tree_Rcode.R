@@ -8,7 +8,7 @@
 ## Please install "party" package: install.packages("party")
 ###################################################################################
 
-## load the rpart library
+## load the library
 library(rpart)
 
 ## DATA EXPLORATION
