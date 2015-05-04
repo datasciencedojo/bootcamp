@@ -4,6 +4,7 @@
 
 ## Objective: Machine learning on ozone prediction with linear regression model
 ## Data source: ozone data set (at https://github.com/datasciencedojo/bootcamp/tree/master/Regression_Algorithms)
+## Please install "rpart" package: install.packages("miscTools")
 ###################################################################################
 
 ## DATA EXPLORATION
