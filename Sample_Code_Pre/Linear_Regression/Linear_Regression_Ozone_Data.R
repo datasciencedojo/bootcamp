@@ -10,7 +10,7 @@
 ## DATA EXPLORATION
 ## load the library
 library(miscTools)
-## load the ozone data to R (set working dirctory to be the same one of Ozone data folder)
+## load the ozone data to R (set working directory to "/Linear_Regression/Dataset" folder)
 ozone.data <- read.table("Ozone/ozone.data", header=T)
 str(ozone.data)
 ## visualize the data
