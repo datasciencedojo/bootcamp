@@ -5,7 +5,7 @@
 ## Objective: Machine learning on hand-written digits recognition with logistic regression model. In this task, we just do the binary classification between digits '2' and '3'.
 ## Data source: zip.train.csv  
 ##	        zip.test.csv   
-##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Logistic_Regression/Zip
+##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Logistic_Regression/Data/
 ###################################################################################
 
 ## DATA EXPLORATION

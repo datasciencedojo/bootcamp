@@ -4,7 +4,7 @@
 
 ## Objective: Machine learning of Titanic data's survival classification with ensemble methods (random forest and boosted decision tree)
 ## Data source: Titanic data set
-##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Ensemble_Methods
+##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Ensemble_Methods/Data
 ## Please install "bst" package: install.packages("bst")
 ###################################################################################
 

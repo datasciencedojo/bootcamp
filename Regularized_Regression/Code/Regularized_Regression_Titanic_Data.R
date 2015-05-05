@@ -4,7 +4,7 @@
 
 ## Objective: Machine learning of Titanic data's survival classification regularized logistic regression
 ## Data source: Titanic data set
-##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Ensemble_Methods
+##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Regularized_Regression/Data
 ## Please install "glmnet" package: install.packages("glmnet")
 ## Please install "Metrics" package: install.packages("Metrics")
 ###################################################################################
