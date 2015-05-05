@@ -4,12 +4,13 @@
 
 ## Objective: Machine learning on ozone prediction with linear regression model
 ## Data source: ozone data set (at https://github.com/datasciencedojo/bootcamp/tree/master/Regression_Algorithms)
+## Please install "miscTools" package: install.packages("miscTools")
 ###################################################################################
 
 ## DATA EXPLORATION
 ## load the library
 library(miscTools)
-## load the ozone data to R (set working dirctory to be the same one of Ozone data folder)
+## load the ozone data to R (set working directory to "/Linear_Regression/Dataset" folder)
 ozone.data <- read.table("Ozone/ozone.data", header=T)
 str(ozone.data)
 ## visualize the data

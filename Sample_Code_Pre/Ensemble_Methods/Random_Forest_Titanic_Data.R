@@ -60,4 +60,9 @@ importance(titanic.model)
 varImpPlot(titanic.model)
 
 ## EXERCISE
-## Random forest has its build-in function of feature selection. varImpPlot() function helps us visualize the importance of all features in the random forest model. Check the importance of all features, remove the lest important one and re-build this model. Would it have similar performance? If so, continue to remove the (newer) lest important feature and re-build the model again, until the model has much worse performance as the original one. Imaging you are dealing much larger data than this Titanic data set, then memory and calculating speed are something that you concern about. In such situation, what are the features you will use in the model?
+## Random forest has its build-in function of feature selection. varImpPlot() function helps us visualize the importance 
+## of all features in the random forest model. Check the importance of all features, remove the least important one 
+## and re-build this model. Would it give similar performance? If so, continue to remove the (newer) least important features 
+## and re-build the model again, until the model has much worse performance as the original one. 
+## Imaging you are dealing much larger data than this Titanic data set, then memory and calculating speed are something that 
+## you concern about. In such situation, what are the features you will use in the model?
