@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<title>Data Exploration Using R</title>
+	<meta name="description" content="Data Exploration Using R">
+	<meta name="author" content="Data Science Dojo">
+	<meta name="generator" content="slidify" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/core/deck.core.css">
+	<link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/goto/deck.goto.css">
+<link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/hash/deck.hash.css">
+<link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/menu/deck.menu.css">
+<link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/navigation/deck.navigation.css">
+<link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/scale/deck.scale.css">
+<link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/status/deck.status.css">
+<!-- Style theme. More available in /themes/style/  -->
+	<link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/themes/style/swiss.css">
+	
+	<!-- Transition theme. More available in /themes/transition/  -->
+	<link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/themes/transition/horizontal-slide.css">
+	<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/modernizr.custom.js"></script>
+	
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css">
+	
+	  
+</head>
+
+<body class="deck-container">
+
+  <!-- Begin slides -->
+  <section class="slide " id="slide-1">
+  <!-- <h1>R Markdown</h1> -->
+  
+<h1>R Markdown</h1>
+
+
+<style>
+#slide-1 {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image:url("DSDBackground.png");
+}
+</style>
+
+
+</section>
+<section class="slide " id="slide-2">
+  <!-- <h2>Tell your story - R Markdown</h2> -->
+  
+<h2>Tell your story - R Markdown</h2>
+
+<ul>
+<li>R Markdown is an authoring format that enables easy creation of dynamic documents, presentations, and reports from R.<br></li>
+<li>It combines the core syntax of markdown (an easy-to-write plain text format) with embedded R code chunks that are run so their output can be included in the final document.<br></li>
+<li>Many available output formats including HTML, PDF, and MS Word</li>
+<li><strong>Installation</strong><br>
+Use RStudio: already installed<br>
+Outside of RStudio: install.packages(&quot;rmarkdown&quot;). A recent version of pandoc (&gt;= 1.12.3) is also required. See <a href="https://github.com/rstudio/rmarkdown/blob/master/PANDOC.MD">https://github.com/rstudio/rmarkdown/blob/master/PANDOC.MD</a> to install it.</li>
+</ul>
+
+
+<style>
+#slide-2 {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image:url("DSDBackground.png");
+}
+</style>
+
+
+</section>
+<section class="slide " id="slide-3">
+  <!-- <h2>Check out Markdown first</h2> -->
+  
+<h2>Check out Markdown first</h2>
+
+<blockquote>
+<p>Markdown is a markup language with plain text formatting syntax designed so that it can be converted to HTML and many other formats using a tool by the same name.</p>
+</blockquote>
+
+<p>One minute you get the point, and always check the cheat sheets<br>
+<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lists">https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lists</a></p>
+
+
+<style>
+#slide-3 {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image:url("DSDBackground.png");
+}
+</style>
+
+
+</section>
+<section class="slide " id="slide-4">
+  <!-- <h2>R Markdown</h2> -->
+  
+<h2>R Markdown</h2>
+
+<ul>
+<li>YAML header</li>
+<li>Edit Markdown, and R chunks</li>
+<li>Run!<br>
+RStudio: knitr button<br>
+Command line: render(&quot;file.Rmd&quot;)<br></li>
+</ul>
+
+<p>R code chunks:
+<a href="http://rmarkdown.rstudio.com/authoring_rcodechunks.html">http://rmarkdown.rstudio.com/authoring_rcodechunks.html</a>  </p>
+
+<p>Cheat sheet of rmarkdown:<br>
+<a href="http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf</a></p>
+
+
+<style>
+#slide-4 {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image:url("DSDBackground.png");
+}
+</style>
+
+
+</section>
+<section class="slide " id="slide-5">
+  <!-- <h2>Then, R Markdown sample code</h2> -->
+  
+<h2>Then, R Markdown sample code</h2>
+
+<p>Download the template:<br>
+<a href="https://github.com/datasciencedojo/datasets/blob/master/rmarkdownd_template.Rmd">https://github.com/datasciencedojo/datasets/blob/master/rmarkdownd_template.Rmd</a></p>
+
+
+<style>
+#slide-5 {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image:url("DSDBackground.png");
+}
+</style>
+
+
+</section>
+<section class="slide " id="slide-6">
+  <!-- <h2>Present your story of Titanic!</h2> -->
+  
+<h2>Present your story of Titanic!</h2>
+
+<p>Use</p>
+
+<ul>
+<li>Titanic data</li>
+<li>Plotting functions in R</li>
+<li>R Markdown template</li>
+<li><strong>The heart of data explorer</strong></li>
+</ul>
+
+<p>to write your story of Titanic...</p>
+
+
+<style>
+#slide-6 {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image:url("DSDBackground.png");
+}
+</style>
+
+
+</section>
+</body>
+  <!-- deck.navigation snippet -->
+  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+  
+  <!-- deck.status snippet -->
+  <p class="deck-status">
+  <span class="deck-status-current"></span>
+    /
+  <span class="deck-status-total"></span>
+  </p>
+  
+  <!-- deck.goto snippet -->
+  <form action="." method="get" class="goto-form">
+  	<label for="goto-slide">Go to slide:</label>
+  	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+  	<datalist id="goto-datalist"></datalist>
+  	<input type="submit" value="Go">
+  </form>
+  
+  <!-- deck.hash snippet -->
+  <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  
+  
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/jquery-1.7.min.js"><\/script>')</script>
+  
+  <!-- Add Slide Class to Build Elements -->
+  <script type='text/javascript'>
+  $('ol.build li').addClass('slide')
+  $('ul.build li').addClass('slide')
+  </script>
+  
+  <!-- Deck Core and extensions -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/core/deck.core.js"></script>
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/goto/deck.goto.js"></script>
+<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/hash/deck.hash.js"></script>
+<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/menu/deck.menu.js"></script>
+<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/navigation/deck.navigation.js"></script>
+<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/scale/deck.scale.js"></script>
+<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/deckjs/extensions/status/deck.status.js"></script>
+<!-- Initialize the deck -->
+  <script>
+  $(function() {
+  	$.deck('.slide');
+  });
+  </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>
