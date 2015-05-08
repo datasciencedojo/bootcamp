@@ -31,7 +31,7 @@ _This repo includes slides and sample codes in DSD's bootcamp_
 
 ## DSD Github style guide
 * Always revise this README.md file to make it consistent with your upload.
-* For the names of all folders and folders, replace space by "_" (except PDF files and the experiments' files)
+* For the names of all folders and files, replace space by "_" (except PDF files and the files in lab sections)
   For example: instead of "Fundamentals of Data Science", name it "Fundamentals_of_Data_Science".   
   Reason: command lines get confused by spase in some situations.
 * Write all README files as Markdown (.md) files as this one
