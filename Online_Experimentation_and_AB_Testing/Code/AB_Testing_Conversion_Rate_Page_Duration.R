@@ -1,9 +1,11 @@
 ###################################################################################
 ## This code is part of Data Science Dojo's bootcamp
 ## Copyright (C) 2015
-
+## 
 ## Objective: Understand AB Testing by two simple examples
-## Data source: 
+## Data source:
+## Time_Spent_VersionA.csv and Time_Spent_VersionB.csv at:
+## https://github.com/datasciencedojo/bootcamp/tree/master/Online_Experimentation_and_AB_Testing
 ###################################################################################
 
 ###################################################################################
@@ -76,11 +78,10 @@ power.prop.test(n=visit.per.group, p1=conversion.rate.A, p2=conversion.rate.B, s
 ## Question: Is the customers' time spent on page different between the version A
 ## and B of the websites (with significance level = 0.05)?
 ###################################################################################
-## Navigate the working directory of R to the directory of this sample code and
-## data files Time_Spent_VersionA.csv and Time_Spent_VersionB.csv
+## Navigate the working directory of R to the directory of this sample code
 ## Load the data
-time.spend.versionA <- read.csv("Time_Spent_VersionA.csv")
-time.spend.versionB <- read.csv("Time_Spent_VersionB.csv")
+time.spend.versionA <- read.csv("../Data/Time_Spent_VersionA.csv")
+time.spend.versionB <- read.csv("../Data/Time_Spent_VersionB.csv")
 ## Use t.test function to do the test
 t.test(time.spend.versionA$duration, time.spend.versionB$duration, alterative="two.sided", conf.level=0.95)
 ## So what is your conclusion after running the above code?
