@@ -3,21 +3,27 @@ _This repo includes slides and sample codes in DSD's bootcamp_
 
 **The folders are described as following:**  
 
-* Pre_Bootcamp         
-  All slides of the webinar courses before the bootcamp.  
-  A great [tutorial of Azure ML Studio](https://www.youtube.com/watch?v=tfYT1KdBh2Y) was made by Data Science Dojo.
+<!-- * Pre_Bootcamp          -->
+<!--   All slides of the webinar courses before the bootcamp.   -->
+<!--   A great [tutorial of Azure ML Studio](https://www.youtube.com/watch?v=tfYT1KdBh2Y) was made by Data Science Dojo. -->
+
+* Introduction_to_Big_Data_Data_Science_and_Predictive_Analytics_Prebootcamp__
+* Fundamentals_of_Data_Mining_Prebootcamp__
+* Introduction_to_R_Programming_Prebootcamp  
 * Introduction                          
 * Fundamentals_of_Data_Science     
-  + Plotting_Systems
+  + Data_Visualization_Using_R  
   + Data_Exploration
   + R_Markdown     
 * Decision_Tree                       
 * Logistic_Regression                   
-* Evaluating_Classification_Models    
+* Evaluating_Machine_Learning_Models  
 * Linear_Regression                     
 * Regularized_Regression
-* Unsupervised_Learning
-* Ensemble_Methods                    
+* Unsupervised_Learning  
+* Ensemble_Methods
+* Naive_Bayes_Classifier
+* Recommender_Systems  
 * Azure_Labs                          
 * Fundamentals_of_Big_Data_Engineering  
 * NoSQL_Databases                        
