@@ -9,7 +9,6 @@ _This repo includes slides and sample codes in DSD's bootcamp_
 * Introduction_to_Big_Data_Data_Science_and_Predictive_Analytics_Prebootcamp
 * Fundamentals_of_Data_Mining_Prebootcamp
 * Introduction_to_R_Programming_Prebootcamp  
-* Introduction_to_R_Programming_Prebootcamp
 * Introduction                          
 * Fundamentals_of_Data_Science     
   + Data_Visualization_Using_R  
