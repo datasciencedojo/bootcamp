@@ -4,7 +4,7 @@
 
 ## Objective: Machine learning of Titanic data's survival classification regularized logistic regression
 ## Data source: Titanic data set
-##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Regularized_Regression/Data
+##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Datasets
 ## Please install "glmnet" package: install.packages("glmnet")
 ## Please install "Metrics" package: install.packages("Metrics")
 ###################################################################################
@@ -14,7 +14,7 @@ library(glmnet)
 
 ## DATA EXPLORATION AND CLEANING
 ## load the iris data in R
-titanic.data <- read.csv("../Data/Titanic_train.csv", header=TRUE)
+titanic.data <- read.csv("../../Datasets/Titanic_train.csv", header=TRUE)
 ## explore the data set
 dim(titanic.data)
 str(titanic.data)

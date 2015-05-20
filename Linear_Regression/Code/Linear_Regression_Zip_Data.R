@@ -5,13 +5,13 @@
 ## Objective: Machine learning on hand-written digits recognition with linear regression model. In this task, we just do the binary classification between digits '2' and '3'.
 ## Data source: zip.train.csv  
 ##	        zip.test.csv   
-##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Linear_Regression/Data
+##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Datasets/Zip
 ###################################################################################
 
 ## DATA EXPLORATION
 ## import both zip.train and zip.test to R (set working dirctory to be the same one of Ozone data folder)
-zip.train <- read.csv("../Data/Zip/zip.train.csv", header=FALSE)
-zip.test <- read.csv("../Data/Zip/zip.test.csv", header=FALSE)
+zip.train <- read.csv("../../Datasets/Zip/zip.train.csv", header=FALSE)
+zip.test <- read.csv("../../Datasets/Zip/zip.test.csv", header=FALSE)
 ## check for dataset dimension
 dim(zip.train)
 dim(zip.test)

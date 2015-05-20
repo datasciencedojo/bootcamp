@@ -4,7 +4,7 @@
 
 ## Objective: Machine learning on hand-written digits recognition with K-Means clustering. In this task, we just do the binary classification between digits '2' and '3'.
 ## Data source: zip.train.csv  
-##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Unsupervised_Learning/Data/
+##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Datasets/Zip
 ## Please install "stats" package: install.packages("stats")
 ## Please install "fpc" package: install.packages("fpc")
 ###################################################################################
@@ -14,7 +14,7 @@ library(stats)
 library(fpc)
 
 ## LOAD THE DATA
-zip.data <- read.csv("../Data/Zip/zip.train.csv", header= F)
+zip.data <- read.csv("../../Datasets/Zip/zip.train.csv", header= F)
 
 ## BUILD MODEL
 ## randomly sample 500 rows in the training set
