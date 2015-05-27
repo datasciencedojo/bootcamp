@@ -10,8 +10,8 @@
 
 ## DATA EXPLORATION
 ## import both zip.train and zip.test to R (set working dirctory to be the same one of Ozone data folder)
-zip.train <- read.csv("../../Datasets/Zip/zip.train.csv", header=FALSE)
-zip.test <- read.csv("../../Datasets/Zip/zip.test.csv", header=FALSE)
+zip.train <- read.csv("Zip/zip.train.csv", header=FALSE)
+zip.test <- read.csv("Zip/zip.test.csv", header=FALSE)
 ## check for dataset dimension
 dim(zip.train)
 dim(zip.test)
@@ -41,6 +41,14 @@ zip.test.predictions <- predict(zip.model, zip.test)
 zip.test.predictions <- ifelse(zip.test.predictions >= 2.5, 3, 2)
 ## extract out true label for zip.testing dataset
 zip.test.observations <- zip.test[,1]
+
+## table of observation and prediction comparison
+compare<-cbind(zip.test.observations,zip.test.predictions)
+
+## count the number of wrong predictions from test set
+error<-ifelse(zip.test.observations==zip.test.predictions,0,1)
+error.count<-sum(error)
+
 ## define error
 error <- zip.test.observations - zip.test.predictions
 ## calculate Root Mean Squared Error (RMSE)
