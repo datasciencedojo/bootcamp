@@ -1,5 +1,5 @@
 #The Streamer APP
-#http://dojodemos.azurewebsites.net/credit-card-streamer/
+#http://demos.datasciencedojo.com/app/credit-card-streamer/
 
 #Show me transactions as they happen. Write it to a blob 
 #AND powerBI.
