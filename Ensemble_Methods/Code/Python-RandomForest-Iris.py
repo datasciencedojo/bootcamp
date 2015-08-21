@@ -7,7 +7,7 @@ import numpy
 iris = load_iris() 
 
 # gaining information about the dataset
-print iris['DESCR']
+#print iris['DESCR']
 
 # loads the iris dataset into a data frame (pandas)
 # inserts column names into the data frame
@@ -19,10 +19,10 @@ irisDF.head()
 irisDF_train = irisDF[irisDF['is_train']==True]
 irisDF_test = irisDF[irisDF['is_train']==False]
 
-features = irisDF.columnsn[:4]
+features = irisDF.columns[:4]
 clf = RandomForestClassifier(n_jobs=2)
-y, _ = pandas.factorize(train['species'])
-clf.fit(train[features], y)
+y, _ = pandas.factorize(irisDF_train['species'])
+clf.fit(irisDF_train[features], y)
 
-preds = iris.target_names[clf.predict(test[features])]
-pandas.crosstab(test['species'], preds, rownames=['actual'], colnames=['preds'])
+preds = iris.target_names[clf.predict(irisDF_test[features])]
+pandas.crosstab(irisDF_test['species'], preds, rownames=['actual'], colnames=['preds'])
