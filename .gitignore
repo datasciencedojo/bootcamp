@@ -15,3 +15,7 @@ Thumbs.db
 *.suo
 *.user
 *.sln.docstates
+
+# cached R data
+.RData
+.Rhistory
