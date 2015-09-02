@@ -11,10 +11,10 @@
 ## load the library
 library(miscTools)
 ## load the ozone data to R (set working dirctory to be the same one of Ozone data folder)
-ozone.data <- read.table("../../Datasets/Ozone/ozone.data", header=T)
+ozone.data <- read.table("Datasets/Ozone/ozone.data", header=T)
 str(ozone.data)
 ## visualize the data
-plot(ozone.data)      
+plot(ozone.data)
 
 ## BUILD MODEL
 ## randomly choose 80% of the data set as training data

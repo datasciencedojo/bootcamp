@@ -3,15 +3,15 @@
 ## Copyright (C) 2015
 
 ## Objective: Machine learning on hand-written digits recognition with logistic regression model. In this task, we just do the binary classification between digits '2' and '3'.
-## Data source: zip.train.csv  
-##	        zip.test.csv   
-##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Datasets/Zip
+## Data source: zip.train.csv  and zip.test.csv   
+## at: https://github.com/datasciencedojo/bootcamp/tree/master/Datasets/Zip
+## Needs lattice package -> Run "install.packages('lattice')"
 ###################################################################################
 
 ## DATA EXPLORATION
-## import both zip.train and zip.test to R (set working dirctory to be the same one of Ozone data folder)
-zip.train <- read.csv("../../Datasets/Zip/zip.train.csv", header=FALSE)
-zip.test <- read.csv("../../Datasets/Zip/zip.test.csv", header=FALSE)
+## import both zip.train and zip.test to R (set working dirctory to root bootcamp folder)
+zip.train <- read.csv("Datasets/Zip/zip.train.csv", header=FALSE)
+zip.test <- read.csv("Datasets/Zip/zip.test.csv", header=FALSE)
 ## check for dataset dimension
 dim(zip.train)
 dim(zip.test)
@@ -53,7 +53,7 @@ zip.predictions.table <- cbind(zip.test.predictions, zip.test.observations)
 wrong.predictions <- subset(zip.predictions.table, zip.test.observations != zip.test.predictions)
 wrong.predictions
 ## visualize one of the wrong prediction from logistic regression
-levelplot(matrix(zip.test[280,2:257],nrow=16, byrow=TRUE))
+levelplot(matrix(zip.test[161,2:257],nrow=16, byrow=TRUE))
 
 ## EXERCISE
 ## Besides confusion matrix, and error, another important evaluation method of logistic regression is ROC curve. ROC curve is the curve of sensitivity as a function of specificity, when the threshold value of possibility increses from 0 to 1. See the Wikipedia page (http://en.wikipedia.org/wiki/Receiver_operating_characteristic) for more detailed introduction.
@@ -64,3 +64,14 @@ levelplot(matrix(zip.test[280,2:257],nrow=16, byrow=TRUE))
 ## zip.test.observations
 ## and
 ## zip.test.predictions.probabilities
+
+## EXERCISE
+## This zip classification problem is already solved in our Linear Regression session. 
+## But in this sample code, logistic regression is used for this classification problem. 
+## And it gives us slightly worse result (with more error)! 
+## What this tells us is: whenever a machine learning problem comes, choose algorithms by thinking 
+## about their principle, instead of the names! 
+## (I am not saying linear regression is better for this case, since the performance of logistic regression may be improved by fine-tuning the parameters.)
+## Compare linear regression, and logistic regression. 
+## What are the differences and similarities?
+

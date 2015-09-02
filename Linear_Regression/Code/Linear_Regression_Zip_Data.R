@@ -9,9 +9,9 @@
 ###################################################################################
 
 ## DATA EXPLORATION
-## import both zip.train and zip.test to R (set working dirctory to be the same one of Ozone data folder)
-zip.train <- read.csv("Zip/zip.train.csv", header=FALSE)
-zip.test <- read.csv("Zip/zip.test.csv", header=FALSE)
+## import both zip.train and zip.test to R (set working dirctory to root bootcamp folder)
+zip.train <- read.csv("Datasets/Zip/zip.train.csv", header=FALSE)
+zip.test <- read.csv("Datasets/Zip/zip.test.csv", header=FALSE)
 ## check for dataset dimension
 dim(zip.train)
 dim(zip.test)
@@ -48,6 +48,7 @@ compare<-cbind(zip.test.observations,zip.test.predictions)
 ## count the number of wrong predictions from test set
 error<-ifelse(zip.test.observations==zip.test.predictions,0,1)
 error.count<-sum(error)
+error.count
 
 ## define error
 error <- zip.test.observations - zip.test.predictions
@@ -62,7 +63,5 @@ confusion.matrix <- table(zip.test.predictions, zip.test.observations)
 confusion.matrix
 ## calculate the accuracy in testing set
 accuracy <- sum(diag(confusion.matrix)) / sum(confusion.matrix)
+accuracy
 
-## EXERCISE
-## This zip classification problem is already solved in our Logistic Regression session. But in this sample code, linear regression is used for this classification problem. And it gives us slightly better result (with less error)! What this tells us is: whenever a machine learning problem comes, choose algorithms by thinking about their principle, instead of the names! (I am not saying linear regression is better for this case, since the performance of logistic regression may be improved by fine-tuning the parameters.)
-## Compare linear regression, and linear logistic regression. What are the difference and similarities?
