@@ -8,12 +8,15 @@
 library(animation)
 
 
-## set larger 'interval' if the speed is too fast
-oopt = ani.options(interval = 2)
+## set larger or smaller 'interval' if the speed is too fast or too slow
+ani.opt.orig = ani.options(interval = 2)
 par(mar = c(3, 3, 1, 1.5), mgp = c(1.5, 0.5, 0))
 kmeans.ani()
- 
-## the kmeans() example; very fast to converge!
+
+## kmeans() default example converges very rapidly. What if we generate some sample data and see
+## how long it can take?
+## Change the seed to change the initial distribution of points.
+set.seed(27)
 x = rbind(matrix(rnorm(100, sd = 0.3), ncol = 2), matrix(rnorm(100, mean = 1, sd = 0.3), 
     ncol = 2))
 colnames(x) = c("x", "y")
