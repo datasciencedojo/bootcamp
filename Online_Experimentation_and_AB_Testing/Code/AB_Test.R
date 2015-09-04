@@ -84,8 +84,8 @@ power.prop.test(n=visit.per.group, p1=conversion.rate.A, p2=conversion.rate.B, s
 ## (These two dwell time data sets are not real one, but the distributions of real
 ## dwell time data would be similar to them.)
 ## Load the data
-dwell.time.versionA <- read.csv("../Code/Dwell_Time_VersionA.csv")
-dwell.time.versionB <- read.csv("../Code/Dwell_Time_VersionB.csv")
+dwell.time.versionA <- read.csv("Datasets/Dwell_Time/Dwell_Time_VersionA.csv")
+dwell.time.versionB <- read.csv("Datasets/Dwell_Time/Dwell_Time_VersionB.csv")
 
 ## Visualize the data
 ## Calculate mean and standard deviation (sd) of dwell time on the web pages

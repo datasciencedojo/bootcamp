@@ -14,7 +14,7 @@ library(stats)
 library(fpc)
 
 ## LOAD THE DATA
-zip.data <- read.csv("Zip/zip.train.csv", header= F)
+zip.data <- read.csv("Datasets/Zip/zip.train.csv", header= F)
 
 ## BUILD MODEL
 ## randomly sample 500 rows in the training set

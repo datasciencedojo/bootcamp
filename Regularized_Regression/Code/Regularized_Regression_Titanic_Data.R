@@ -11,61 +11,65 @@
 
 ## load the library
 library(glmnet)
+library(Metrics)
 
 ## DATA EXPLORATION AND CLEANING
 ## load the iris data in R
-titanic.data <- read.csv("../../Datasets/Titanic_train.csv", header=TRUE)
+titanic.data <- read.csv("Datasets/titanic.csv", header=TRUE)
 ## explore the data set
 dim(titanic.data)
 str(titanic.data)
 summary(titanic.data)
 ## ignore the PassengerID, Name, Ticket, and Cabin
-titanic.data <- titanic.data[, -c(1, 4, 9, 11, 12)]
+titanic.data <- titanic.data[, -c(1, 4, 9, 11)]
 titanic.data$Survived <- as.factor(titanic.data$Survived)
-## there are some NAs in Age, fill it with the median value
+## there are some NAs in Age, fill them with the median value
 titanic.data$Age[is.na(titanic.data$Age)] = median(titanic.data$Age, na.rm=TRUE)
 
 ## BUILD MODEL
-## randomly choose 80% of the data set as training data
-random.rows.train <- sample(1:nrow(titanic.data), 0.8*nrow(titanic.data), replace=F)
-titanic.train <- titanic.data[random.rows.train,]
+set.seed(27)
+## randomly choose 70% of the data set as training data
+titanic.train.indices <- sample(1:nrow(titanic.data), 0.7*nrow(titanic.data), replace=F)
+titanic.train <- titanic.data[titanic.train.indices,]
 dim(titanic.train)
-## select the other 20% as the testing data
-random.rows.test <- setdiff(1:nrow(titanic.data),random.rows.train)
-titanic.test <- titanic.data[random.rows.test,]
+## use the remaining 30% as the testing data
+titanic.test <- titanic.data[-titanic.train.indices,]
 dim(titanic.test)
-## fitting decision model on training set
-set.seed(777)
-x <- model.matrix(Survived~., data=titanic.train)[,-1] # glmnet requires matrix as input of glmnet function
-titanic.model <- glmnet(x, titanic.train$Survived, family="binomial", lambda=0.001)
-titanic.model
+
+## fit a logistic regression model to training set
+## glmnet requires a matrix input to the model function. ?glmnet and ?cv.glmnet for the documentation
+## alpha determines the regularization penalty - 1 is lasso, 0 is ridge regression
+## glmnet uses cross validation to determine the best lambda value
+x.train <- model.matrix(Survived ~ ., data=titanic.train)[,-1] 
+titanic.rl.model <- cv.glmnet(x.train, titanic.train$Survived, family="binomial", alpha=1)
+print(titanic.rl.model)
 
 ## MODEL EVALUATION
-## to predict using logistic regression model, probablilities obtained
-x.test <- model.matrix(Survived~., data=titanic.test)[,-1] # glmnet requires matrix as input of predict function
-titanic.test.predictions.probabilities <- predict(titanic.model, x.test, type="response")
-## extract out the observation for titanic.testing dataset
-titanic.test.observations <- titanic.test[,1]
-## AUC
-library(Metrics)
-auc(titanic.test.observations, titanic.test.predictions.probabilities)
-## assign labels with decision rule of survival, >0.5= 1, <0.5=0
-titanic.test.predictions <- ifelse(titanic.test.predictions.probabilities >= 0.5, 1, 0)
-## show the confusion table
-confusion.matrix <- table(titanic.test.predictions, titanic.test.observations)
-confusion.matrix
+## predict test set values, reporting probabilities
+x.test <- model.matrix(Survived ~ ., data=titanic.test)[,-1]
+titanic.rl.predictions <- predict(titanic.rl.model, newx=x.test, type="response")
+## Calculate the AUC
+titanic.rl.auc <- auc(titanic.test$Survived, titanic.rl.predictions)
+print(titanic.rl.auc)
+## assign labels with 50% threshold for survival
+titanic.rl.predictions.rd <- ifelse(titanic.rl.predictions >= 0.5, 1, 0)
+## calculate the confusion matrix
+titanic.rl.confusion <- table(titanic.rl.predictions.rd, titanic.test$Survived)
+print(titanic.rl.confusion)
 ## accuracy
-accuracy <- sum(diag(confusion.matrix)) / sum(confusion.matrix)
-accuracy
+titanic.rl.accuracy <- sum(diag(titanic.rl.confusion)) / sum(titanic.rl.confusion)
+print(titanic.rl.accuracy)
 ## precision
-precision <- confusion.matrix[2,2] / sum(confusion.matrix[2,])
-precision
+titanic.rl.precision <- titanic.rl.confusion[2,2] / sum(titanic.rl.confusion[2,])
+print(titanic.rl.precision)
 ## recall
-recall <- confusion.matrix[2,2] / sum(confusion.matrix[,2])
-recall
+titanic.rl.recall <- titanic.rl.confusion[2,2] / sum(titanic.rl.confusion[,2])
+print(titanic.rl.recall)
 ## F1 score
-F1.score <- 2 * precision * recall / (precision + recall)
-F1.score
+titanic.rl.F1 <- 2 * titanic.rl.precision * titanic.rl.recall / (titanic.rl.precision + titanic.rl.recall)
+print(titanic.rl.F1)
 
-## EXERCISE
-## AUC (Area Under Curve of ROC) is a commonly used metric for classification models. It is threshold independent. Check the wikipedia page http://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_curve for more details.
+## Exercise:
+## Experiment with value of alpha, the type of regularization.
+## You can also adjust what measure it uses to choose the "best" lambda using a "type.measure"
+## argument passed to cv.glmnet. Look at ?cv.glmnet and experiment with different measures.
