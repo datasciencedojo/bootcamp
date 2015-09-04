@@ -8,12 +8,11 @@
 
 ######Simulate Dataset for Clustering
 
-n = 150
-g = 6 
-set.seed(g)
-d <- data.frame(x = unlist(lapply(1:g, function(i) rnorm(n/g, runif(1)*i^2))), 
-                y = unlist(lapply(1:g, function(i) rnorm(n/g, runif(1)*i^2))))
-sim.data<-d
+n.objects = 150
+n.cluster = 6
+set.seed(27)
+sim.data <- data.frame(x = unlist(lapply(1:n.cluster, function(i) rnorm(n.objects = 150/n.cluster, runif(1)*i^2))), 
+                y = unlist(lapply(1:n.cluster, function(i) rnorm(n.objects = 150/n.cluster, runif(1)*i^2))))
 
 #####Plots
 
@@ -29,4 +28,7 @@ wcss <- (nrow(sim.data)-1)*sum(apply(sim.data,2,var))
 }   
 plot(1:15, wcss, type="b", xlab="Number of Clusters",ylab="Within groups sum of squares")
 
+## Exercise:
+## Play with changing n.objects and n.cluster. What do you notice about the shape of the scree plot
+## as you change these values? What does this suggest about the strengths and weaknesses of kmeans?
 
