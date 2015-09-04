@@ -21,7 +21,7 @@ str(titanic.data)
 summary(titanic.data)
 ## ignore the PassengerID, Name, Ticket, and Cabin
 titanic.data <- titanic.data[, -c(1, 4, 9, 11)]
-## bst requires that binary target classes have the values {-1, 1}
+## the bst default settings require that binary target classes have the values {-1, 1}
 ## map 0 -> -1 in Survived column; so 'Dead' is now coded as -1 rather than 0
 titanic.data[titanic.data$Survived == 0, "Survived"] <- -1
 ## there are some NAs in Age, fill with the median value
@@ -30,43 +30,44 @@ titanic.data$Age[is.na(titanic.data$Age)] = median(titanic.data$Age, na.rm=TRUE)
 ## BUILD MODEL
 ## randomly choose 70% of the data set as training data
 set.seed(27)
-random.rows.train <- sample(1:nrow(titanic.data), 0.7*nrow(titanic.data), replace=F)
-titanic.train <- titanic.data[random.rows.train,]
+titanic.train.indices <- sample(1:nrow(titanic.data), 0.7*nrow(titanic.data), replace=F)
+titanic.train <- titanic.data[titanic.train.indices,]
 dim(titanic.train)
 summary(titanic.train$Survived)
 ## select the other 30% as the testing data
-random.rows.test <- setdiff(1:nrow(titanic.data),random.rows.train)
-titanic.test <- titanic.data[random.rows.test,]
+titanic.test <- titanic.data[-titanic.train.indices,]
 dim(titanic.test)
 summary(titanic.test$Survived)
+## You could also do this
+#random.rows.test <- setdiff(1:nrow(titanic.data),random.rows.train)
+#titanic.test <- titanic.data[random.rows.test,]
+
 ## fitting decision model on training set
 ## note that bst doesn't take formula variables like previous models
 ## different models often have different requirements. Look at package manuals,
 ## or use ? to figure out what a given model requires
-titanic.model <- bst(titanic.train[,2:8], titanic.train$Survived, learner = "tree")
+titanic.bst.model <- bst(titanic.train[,2:8], titanic.train$Survived, learner = "tree")
 #titanic.model <- bst(titanic.train[,2:8], titanic.train$Survived, learner = "tree", control.tree=list(maxdepth=2))
-titanic.model
+print(titanic.bst.model)
 
 ## MODEL EVALUATION
 ## Predict test set outcomes and report probabilities
-titanic.test.predictions <- predict(titanic.model, titanic.test, type="class")
-## extract out the observations from the titanic.test dataset
-titanic.test.observations <- titanic.test[,1]
-## show the confusion matrix
-confusion.matrix <- table(titanic.test.predictions, titanic.test.observations)
-confusion.matrix
+titanic.bst.predictions <- predict(titanic.bst.model, titanic.test, type="class")
+## Create the confusion matrix
+titanic.bst.confusion <- table(titanic.bst.predictions, titanic.test$Survived)
+print(titanic.bst.confusion)
 ## accuracy
-accuracy <- sum(diag(confusion.matrix)) / sum(confusion.matrix)
-accuracy
+titanic.bst.accuracy <- sum(diag(titanic.bst.confusion)) / sum(titanic.bst.confusion)
+print(titanic.bst.accuracy)
 ## precision
-precision <- confusion.matrix[2,2] / sum(confusion.matrix[2,])
-precision
+titanic.bst.precision <- titanic.bst.confusion[2,2] / sum(titanic.bst.confusion[2,])
+print(titanic.bst.precision)
 ## recall
-recall <- confusion.matrix[2,2] / sum(confusion.matrix[,2])
-recall
+titanic.bst.recall <- titanic.bst.confusion[2,2] / sum(titanic.bst.confusion[,2])
+print(titanic.bst.recall)
 ## F1 score
-F1.score <- 2 * precision * recall / (precision + recall)
-F1.score
+titanic.bst.F1 <- 2 * titanic.bst.precision * titanic.bst.recall / (titanic.bst.precision + titanic.bst.recall)
+print(titanic.bst.F1)
 
 ## EXERCISE
 ## In the function of bst(), we can pass a parameter maxdepth to control.tree in the
@@ -74,5 +75,5 @@ F1.score
 ## root node coded as depth 0. The default value is 1. If we increase the value of
 ## maxdepth does this lead to a better model?
 ## Why does changing this parameter lead to better or worse models?
-## bst library's mannual: http://cran.r-project.org/web/packages/bst/bst.pdf
+## bst library's manual: http://cran.r-project.org/web/packages/bst/bst.pdf or ?bst
 

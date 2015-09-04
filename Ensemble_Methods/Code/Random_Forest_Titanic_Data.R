@@ -31,42 +31,43 @@ titanic.data$Age[is.na(titanic.data$Age)] = median(titanic.data$Age, na.rm=TRUE)
 ## BUILD MODEL
 ## randomly choose 70% of the data set as training data
 set.seed(27)
-random.rows.train <- sample(1:nrow(titanic.data), 0.8*nrow(titanic.data), replace=F)
-titanic.train <- titanic.data[random.rows.train,]
+titanic.train.indices <- sample(1:nrow(titanic.data), 0.7*nrow(titanic.data), replace=F)
+titanic.train <- titanic.data[titanic.train.indices,]
 dim(titanic.train)
 summary(titanic.train$Survived)
 ## select the other 30% as the testing data
-random.rows.test <- setdiff(1:nrow(titanic.data),random.rows.train)
-titanic.test <- titanic.data[random.rows.test,]
+titanic.test <- titanic.data[-titanic.train.indices,]
 dim(titanic.test)
 summary(titanic.test$Survived)
-## fitting decision model on training set
-titanic.model <- randomForest(Survived~., data=titanic.train, importance=TRUE, ntree=500)
-print(titanic.model)
+## You could also do this
+#random.rows.test <- setdiff(1:nrow(titanic.data),random.rows.train)
+#titanic.test <- titanic.data[random.rows.test,]
+
+## Fit decision model to training set
+titanic.rf.model <- randomForest(Survived ~ ., data=titanic.train, importance=TRUE, ntree=500)
+print(titanic.rf.model)
 
 ## MODEL EVALUATION
-## Predict test set outcomes and report probabilities
-titanic.test.predictions <- predict(titanic.model, titanic.test, type="response")
-## extract out the observation for titanic.testing dataset
-titanic.test.observations <- titanic.test[,1]
-## show the confusion matrix
-confusion.matrix <- table(titanic.test.predictions, titanic.test.observations)
-confusion.matrix
+## Predict test set outcomes, reporting probabilities
+titanic.rf.predictions <- predict(titanic.model, titanic.test, type="response")
+## calculate the confusion matrix
+titanic.rf.confusion <- table(titanic.rf.predictions, titanic.test$Survived)
+print(titanic.rf.confusion)
 ## accuracy
-accuracy <- sum(diag(confusion.matrix)) / sum(confusion.matrix)
-accuracy
+titanic.rf.accuracy <- sum(diag(titanic.rf.confusion)) / sum(titanic.rf.confusion)
+print(titanic.rf.accuracy)
 ## precision
-precision <- confusion.matrix[2,2] / sum(confusion.matrix[2,])
-precision
+titanic.rf.precision <- titanic.rf.confusion[2,2] / sum(titanic.rf.confusion[2,])
+print(titanic.rf.precision)
 ## recall
-recall <- confusion.matrix[2,2] / sum(confusion.matrix[,2])
-recall
+titanic.rf.recall <- titanic.rf.confusion[2,2] / sum(titanic.rf.confusion[,2])
+print(titanic.rf.recall)
 ## F1 score
-F1.score <- 2 * precision * recall / (precision + recall)
-F1.score
-## show the importance of variables
-importance(titanic.model)
-varImpPlot(titanic.model)
+titanic.rf.F1 <- 2 * titanic.rf.precision * titanic.rf.recall / (titanic.rf.precision + titanic.rf.recall)
+print(titanic.rf.F1)
+## show variable importance
+importance(titanic.rf.model)
+varImpPlot(titanic.rf.model)
 
 ## EXERCISE
 ## Random forest has built-in feature selection.

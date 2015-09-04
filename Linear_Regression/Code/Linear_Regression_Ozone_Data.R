@@ -21,7 +21,7 @@ plot(ozone.data)
 ## randomly choose 70% of the data set as training data
 set.seed(27)
 ozone.train.indices <- sample(1:nrow(ozone.data), 0.7*nrow(ozone.data), replace=F)
-ozone.train <- ozone.data[ozone.rows.indices,]
+ozone.train <- ozone.data[ozone.train.indices,]
 dim(ozone.train)
 ## Use the remaining 30% as testing data
 ozone.test <- ozone.data[-ozone.train.indices,]
