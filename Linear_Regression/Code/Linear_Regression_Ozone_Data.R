@@ -10,48 +10,50 @@
 ## DATA EXPLORATION
 ## load the library
 library(miscTools)
-## load the ozone data to R (set working dirctory to be the same one of Ozone data folder)
+## load the ozone data to R
+## make sure your working directory is set to the bootcamp base folder
 ozone.data <- read.table("Datasets/Ozone/ozone.data", header=T)
 str(ozone.data)
 ## visualize the data
 plot(ozone.data)
 
 ## BUILD MODEL
-## randomly choose 80% of the data set as training data
-set.seed(777)
-random.rows.train <- sample(1:nrow(ozone.data), 0.8*nrow(ozone.data), replace=F)
-ozone.train <- ozone.data[random.rows.train,]
+## randomly choose 70% of the data set as training data
+set.seed(27)
+ozone.train.indices <- sample(1:nrow(ozone.data), 0.7*nrow(ozone.data), replace=F)
+ozone.train <- ozone.data[ozone.rows.indices,]
 dim(ozone.train)
-## select the other 20% as the testing data
-random.rows.test <- setdiff(1:nrow(ozone.data),random.rows.train)
-ozone.test <- ozone.data[random.rows.test,]
+## Use the remaining 30% as testing data
+ozone.test <- ozone.data[-ozone.train.indices,]
 dim(ozone.test)
-## fitting decision model on training set 
-ozone.model <- lm(ozone~., data=ozone.train)
-ozone.model
+## You could also do the following
+#ozone.test.indices <- setdiff(1:nrow(ozone.data),random.rows.train)
+#ozone.test <- ozone.data[ozone.test.indices,]
 
-## VISUALIZE THE MODELS
-layout(matrix(c(1,2,3,4),2,2)) # optional 4 graphs/page 
-plot(ozone.model)
+## fitting decision model on training set 
+ozone.lm.model <- lm(ozone ~ ., data=ozone.train)
+print(ozone.lm.model)
+
+## VISUALIZE THE TRAINED MODEL
+layout(matrix(c(1,2,3,4),2,2)) # set 4 graphs/page 
+plot(ozone.lm.model)
 
 ## MODEL EVALUATION
-## predict using linear regression model
-ozone.test.predictions <- predict(ozone.model, ozone.test)
-## define error
-error <- ozone.test$ozone - ozone.test.predictions
+## make prediction using trained model
+ozone.lm.predictions <- predict(ozone.lm.model, ozone.test)
+## calculate residuals
+ozone.lm.residuals <- ozone.test$ozone - ozone.lm.predictions
 ## calculate Root Mean Squared Error (RMSE)
-ozone.rmse <- sqrt(mean(error^2))
-ozone.rmse
+ozone.lm.rmse <- sqrt(mean(ozone.lm.residuals^2))
+print(ozone.lm.rmse)
 ## calculate Mean Absolute Error (MAE)
-ozone.mae <- mean(abs(error))
-ozone.mae
+ozone.lm.mae <- mean(abs(ozone.lm.residuals))
+print(ozone.lm.mae)
 ## R squared (coefficient of determination)
-resid <- ozone.test.predictions - ozone.test$ozone
-r2 <- rSquared(ozone.test.predictions, resid)
-r2
+ozone.lm.r2 <- rSquared(ozone.lm.predictions, ozone.lm.residuals)
+print(ozone.lm.r2)
 
-## EXERCISE
-## In the MODEL EVALUATION session above, three metrics of the model are shown. They are all important metrics for regression problems. Check their definitions at Wikipedia to make sure you know the idea:
-## http://en.wikipedia.org/wiki/Root-mean-square_deviation
-## http://en.wikipedia.org/wiki/Mean_absolute_scaled_error
-## http://en.wikipedia.org/wiki/Coefficient_of_determination
+## Exercise:
+## Try dropping some of the predictor columns and rerunning the model. 
+## How can you estimate variable importance via this brute force method? 
+## What variable is most important? least important?

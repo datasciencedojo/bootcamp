@@ -18,117 +18,118 @@ str(kyphosis)
 dim(kyphosis)
 summary(kyphosis)
 
-## BUILD MODEL 1
-## randomly choose 60% of the data set as training data
+## randomly choose 60% of the data set as training data (Why 60% instead of 70%?)
 set.seed(102)
-random.rows.train <- sample(1:nrow(kyphosis), 0.6*nrow(kyphosis))
-kyphosis.train <- kyphosis[random.rows.train,]
+
+kyphosis.train.indices <- sample(1:nrow(kyphosis), 0.6*nrow(kyphosis))
+kyphosis.train <- kyphosis[kyphosis.train.indices,]
 dim(kyphosis.train)
-## select the other 40% as the testing data
-random.rows.test <- setdiff(1:nrow(kyphosis),random.rows.train)
-kyphosis.test <- kyphosis[random.rows.test,]
+## Use the remaining 40% as the testing data
+kyphosis.test <- kyphosis[-kyphosis.train.indices,]
 dim(kyphosis.test)
+
+## You could also do the following to get the test data
+#kyphosis.test.indices <- setdiff(1:nrow(kyphosis),random.rows.train)
+#kyphosis.test <- kyphosis[kyphosis.test.indices,]
+
 ## check testing and training set target distributions
 table(kyphosis.train$Kyphosis)
 table(kyphosis.test$Kyphosis)
 
-## fitting first decision model on training set
-kyphosis.model1 <- rpart(Kyphosis ~ ., data = kyphosis.train)
+## BUILD MODEL 1
+## Splitting based on Gini index, cp = 0.01, minsplit = 20
+## See ?rpart.control for definitions of cp and minsplit
+kyphosis.dt.1.model <- rpart(Kyphosis ~ ., data = kyphosis.train)
 
 ## Display model
-summary(kyphosis.model1)
+summary(kyphosis.dt.1.model)
 
-## MODEL 1 EVALUATION
-## Splitting based on Gini index
-## make prediction using decision model
-kyphosis.test.predictions1 <- predict(kyphosis.model1, kyphosis.test, type = "class")
-## extract the observations out of the  testing set
-kyphosis.test.observations <- kyphosis.test[,"Kyphosis"]
+## MODEL EVALUATION
+## Make predictions using the default decision tree
+kyphosis.dt.1.predictions <- predict(kyphosis.dt.1.model, kyphosis.test, type = "class")
+
 ## create confusion matrix
-confusion.matrix1 <- table(kyphosis.test.predictions1, kyphosis.test.observations)
-confusion.matrix1
+kyphosis.dt.1.confusion <- table(kyphosis.dt.1.predictions, kyphosis.test[,"Kyphosis"])
+print(kyphosis.dt.1.confusion)
 ## accuracy
-accuracy1 <- sum(diag(confusion.matrix1)) / sum(confusion.matrix1)
-accuracy1
+kyphosis.dt.1.accuracy <- sum(diag(kyphosis.dt.1.confusion)) / sum(kyphosis.dt.1.confusion)
+print(kyphosis.dt.1.accuracy)
 ## precision
-precision1 <- confusion.matrix1[2,2] / sum(confusion.matrix1[2,])
-precision1
+kyphosis.dt.1.precision <- kyphosis.dt.1.confusion[2,2] / sum(kyphosis.dt.1.confusion[2,])
+print(kyphosis.dt.1.precision)
 ## recall
-recall1 <- confusion.matrix1[2,2] / sum(confusion.matrix1[,2])
-recall1
+kyphosis.dt.1.recall <- kyphosis.dt.1.confusion[2,2] / sum(kyphosis.dt.1.confusion[,2])
+print(kyphosis.dt.1.recall)
 ## F1 score
-F1.score1 <- 2 * precision1 * recall1 / (precision1 + recall1)
-F1.score1
+kyphosis.dt.1.F1 <- 2 * kyphosis.dt.1.precision * kyphosis.dt.1.recall / (kyphosis.dt.1.precision + kyphosis.dt.1.recall)
+print(kyphosis.dt.1.F1)
 
 ## BUILD MODEL 2
-## Splitting based on information gain
-## fitting decision model on training set
-kyphosis.model2 <- rpart(Kyphosis ~ ., data = kyphosis.train, parms = list(split = "information"))
+## Splitting based on information gain, cp = 0.01, minsplit = 20
+kyphosis.dt.2.model <- rpart(Kyphosis ~ ., data = kyphosis.train, parms = list(split = "information"))
 
 ## Display model
-summary(kyphosis.model1)
+summary(kyphosis.dt.2.model)
 
 ## MODEL 2 EVALUATION
 ## make prediction using decision model
-kyphosis.test.predictions2 <- predict(kyphosis.model2, kyphosis.test, type = "class")
-## show the confusion matrix
-confusion.matrix2 <- table(kyphosis.test.predictions2, kyphosis.test.observations)
-confusion.matrix2
+kyphosis.dt.2.predictions <- predict(kyphosis.dt.2.model, kyphosis.test, type = "class")
+## build the confusion matrix
+kyphosis.dt.2.confusion <- table(kyphosis.dt.2.predictions, kyphosis.test[,"Kyphosis"])
+print(kyphosis.dt.2.confusion)
 ## accuracy
-accuracy2 <- sum(diag(confusion.matrix2)) / sum(confusion.matrix2)
-accuracy2
+kyphosis.dt.2.accuracy <- sum(diag(kyphosis.dt.2.confusion)) / sum(kyphosis.dt.2.confusion)
+print(kyphosis.dt.2.accuracy)
 ## precision
-precision2 <- confusion.matrix2[2,2] / sum(confusion.matrix2[2,])
-precision2
+kyphosis.dt.2.precision <- kyphosis.dt.2.confusion[2,2] / sum(kyphosis.dt.2.confusion[2,])
+print(kyphosis.dt.2.precision)
 ## recall
-recall2 <- confusion.matrix2[2,2] / sum(confusion.matrix2[,2])
-recall2
+kyphosis.dt.2.recall <- kyphosis.dt.2.confusion[2,2] / sum(kyphosis.dt.2.confusion[,2])
+print(kyphosis.dt.2.recall)
 ## F1 score
-F1.score2 <- 2 * precision2 * recall2 / (precision2 + recall2)
-F1.score2
+kyphosis.dt.2.F1 <- 2 * kyphosis.dt.2.precision * kyphosis.dt.2.recall / (kyphosis.dt.2.precision + kyphosis.dt.2.recall)
+print(kyphosis.dt.2.F1)
 
-## Display model
-summary(kyphosis.model1)
 
 ## BUILD MODEL 3
-## Splitting on gini index; split only if node has > 10 objects, more strict split improvement requirements
-## fitting decision model on training set
-kyphosis.model3 <- rpart(Kyphosis ~ ., data = kyphosis.train, control = rpart.control(cp = 0.1, minsplit = 10))
+## Splitting on gini index; cp = 0.1, minsplit = 10
+kyphosis.dt.3.model <- rpart(Kyphosis ~ ., data = kyphosis.train, control = rpart.control(cp = 0.1, minsplit = 10))
 
 ## MODEL 3 EVALUATION
 ## make prediction using decision model
-kyphosis.test.predictions3 <- predict(kyphosis.model3, kyphosis.test, type = "class")
+kyphosis.dt.3.predictions <- predict(kyphosis.dt.3.model, kyphosis.test, type = "class")
 ## show the confusion matrix
-confusion.matrix3 <- table(kyphosis.test.predictions3, kyphosis.test.observations)
-confusion.matrix3
+kyphosis.dt.3.confusion <- table(kyphosis.dt.3.predictions, kyphosis.test[,"Kyphosis"])
+print(kyphosis.dt.3.confusion)
 ## accuracy
-accuracy3 <- sum(diag(confusion.matrix3)) / sum(confusion.matrix3)
-accuracy3
+kyphosis.dt.3.accuracy <- sum(diag(kyphosis.dt.3.confusion)) / sum(kyphosis.dt.3.confusion)
+print(kyphosis.dt.3.accuracy)
 ## precision
-precision3 <- confusion.matrix3[2,2] / sum(confusion.matrix3[2,])
-precision3
+kyphosis.dt.3.precision <- kyphosis.dt.3.confusion[2,2] / sum(kyphosis.dt.3.confusion[2,])
+print(kyphosis.dt.3.precision)
 ## recall
-recall3 <- confusion.matrix3[2,2] / sum(confusion.matrix3[,2])
-recall3
+kyphosis.dt.3.recall <- kyphosis.dt.3.confusion[2,2] / sum(kyphosis.dt.3.confusion[,2])
+print(kyphosis.dt.3.recall)
 ## F1 score
-F1.score3 <- 2 * precision3 * recall3 / (precision3 + recall3)
-F1.score3
+kyphosis.dt.3.F1 <- 2 * kyphosis.dt.3.precision * kyphosis.dt.3.recall / (kyphosis.dt.3.precision + kyphosis.dt.3.recall)
+print(kyphosis.dt.3.F1)
 
 ## VISUALIZE THE THREE MODELS
 par(mfrow = c(1,3), xpd = TRUE)
-plot(kyphosis.model1)
+plot(kyphosis.dt.1.model)
 title(main = "Model 1")
-text(kyphosis.model1, use.n = TRUE)
-plot(kyphosis.model2)
+text(kyphosis.dt.1.model, use.n = TRUE)
+plot(kyphosis.dt.2.model)
 title(main = "Model 2")
-text(kyphosis.model2, use.n = TRUE)
-plot(kyphosis.model3)
+text(kyphosis.dt.2.model, use.n = TRUE)
+plot(kyphosis.dt.3.model)
 title(main = "Model 3")
-text(kyphosis.model3, use.n = TRUE)
+text(kyphosis.dt.3.model, use.n = TRUE)
 
 ## EXERCISE
-## Several parameters of rpart function can be used to tune the tree. Some parameters used in the above 3 models are:
+## Several parameters of rpart function can be used to tune the tree. 
+## Some parameters used in the above 3 models are:
 ## parms = list(split = "information"))
 ## rpart.control(cp = 0.1, minsplit = 10)
-## Check out the mannual of rpart with ?rpart.
-## Fine-tune the parameters, could you build a better decision tree model with less error?
+## Check out ?rpart.control and ?rpart to read the documentation on the model
+## Fine-tune the parameters, can you build a better decision tree model with less error?

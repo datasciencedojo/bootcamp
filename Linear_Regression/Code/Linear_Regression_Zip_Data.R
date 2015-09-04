@@ -26,42 +26,51 @@ levelplot(matrix(zip.train[5,2:257],nrow=16, byrow=TRUE))
 zip.train <- subset(zip.train,zip.train$V1==2 | zip.train$V1==3)
 zip.test <- subset(zip.test,zip.test$V1==2 | zip.test$V1==3)
 ## build linear regression model with log.zip.training dataset
-zip.model <- lm(formula=V1 ~ ., data=zip.train)
-## extract linear regression model summary
-zip.model
+zip.lm.model <- lm(V1 ~ ., data=zip.train)
 ## explore the model
-summary(zip.model)
-head(zip.model$coefficients)
-head(zip.model$fitted.values)
-head(zip.model$residuals)
+print(zip.lm.model)
+summary(zip.lm.model)
+head(zip.lm.model$coefficients)
+head(zip.lm.model$fitted.values)
+head(zip.lm.model$residuals)
 
 ## MODEL EVALUATION
 ## To predict using linear regression model (round the number as the response)
-zip.test.predictions <- predict(zip.model, zip.test)
-zip.test.predictions <- ifelse(zip.test.predictions >= 2.5, 3, 2)
-## extract out true label for zip.testing dataset
-zip.test.observations <- zip.test[,1]
-
-## table of observation and prediction comparison
-compare<-cbind(zip.test.observations,zip.test.predictions)
+zip.lm.predictions <- predict(zip.model.lm, zip.test)
+zip.lm.predictions.rd <- ifelse(zip.lm.predictions >= 2.5, 3, 2)
 
 ## count the number of wrong predictions from test set
-error<-ifelse(zip.test.observations==zip.test.predictions,0,1)
-error.count<-sum(error)
-error.count
+zip.lm.error.count<-sum(ifelse(zip.test[,1]==zip.lm.predictions.rd,0,1))
+print(zip.lm.error.count)
 
-## define error
-error <- zip.test.observations - zip.test.predictions
+## Calculate residuals (should we use the rounded predictions or the unrounded predictions? why?)
+zip.lm.residuals <- zip.test[,1] - zip.lm.predictions
 ## calculate Root Mean Squared Error (RMSE)
-ozone.rmse <- sqrt(mean(error^2))
-ozone.rmse
+zip.lm.rmse <- sqrt(mean(zip.test.lm.residuals^2))
+print(zip.lm.rmse)
 ## calculate Mean Absolute Error (MAE)
-ozone.mae <- mean(abs(error))
-ozone.mae
-## show the confusion table
-confusion.matrix <- table(zip.test.predictions, zip.test.observations)
-confusion.matrix
-## calculate the accuracy in testing set
-accuracy <- sum(diag(confusion.matrix)) / sum(confusion.matrix)
-accuracy
+zip.lm.mae <- mean(abs(zip.test.lm.residuals))
+print(zip.lm.mae)
+## build the confusion matrix
+zip.lm.confusion <- table(zip.test.lm.predictions.rd, zip.test.observations)
+print(zip.lm.confusion)
+## calculate the accuracy, precision, recall, and F1 for our predictions
+zip.lm.accuracy <- sum(diag(zip.lm.confusion)) / sum(zip.lm.confusion)
+print(zip.lm.accuracy)
 
+zip.lm.precision <- zip.lm.confusion[2,2] / sum(zip.lm.confusion[2,])
+print(ozone.lm.precision)
+
+zip.lm.recall <- zip.lm.confusion[2,2] / sum(zip.lm.confusion[,2])
+print(zip.lm.recall)
+
+zip.lm.F1 <- 2 * zip.lm.precision * zip.lm.recall / (zip.lm.precision + zip.lm.recall)
+print(zip.lm.F1)
+
+## Exercise:
+## Try varying the threshold for rounding the predictions to numbers. How does this change
+## the accuracy, precision, recall, and F1?
+## Install and import the "AUC" library and use the roc and auc functions to calculate the
+## area under the receiver curve if we interpret (prediction - 2) as the probability of a test
+## object being a 3.
+## Use ?roc and ?auc after importing the library to see the documentation for the functions
