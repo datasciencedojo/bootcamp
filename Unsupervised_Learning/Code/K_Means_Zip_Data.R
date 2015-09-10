@@ -11,7 +11,7 @@
 
 ## load the libraries
 library(stats)
-library(fpc)
+#library(fpc)
 
 ## LOAD THE DATA
 zip.data <- read.csv("Zip/zip.train.csv", header= F)
