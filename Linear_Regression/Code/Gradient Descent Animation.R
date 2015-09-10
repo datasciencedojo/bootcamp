@@ -22,4 +22,4 @@ grad.desc(f2, c(-2, -2, 2, 2), c(-1, 0.5), gamma = 0.3, tol = 1e-04)
 
 
 ####Maximum number of iterations reached!####
-#### Replace with smaller gamma <0.3 ######
+#### Try with smaller gamma (< 0.3) ######

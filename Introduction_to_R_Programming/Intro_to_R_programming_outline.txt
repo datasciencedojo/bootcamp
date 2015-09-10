@@ -1,0 +1,102 @@
+Intro to R Detailed Outline
+
+INTRO
+-What is R?
+--A mature and well developed open source language/shell designed for statistical work
+--Thousands of official packages in addition to built-in functionality
+--Excells at graphics, probability, and modeling
+
+-Drawbacks
+--Slow with very large datasets
+--Unique semantics
+
+-Why learn R?
+--Widespread in the machine learning world
+----Example of 1 line linear regression
+--Older, more cohesive + comprehensive than Python machine learning (closest competitor)
+--With good sampling, useful for visualization + exploration
+
+-R Studio
+--Google "R Studio" or go to www.rstudio.com
+--Replacement to default R shell that makes file system navigation and debugging scripts easier
+--Give tour of R studio workspace, highlight some of the modifiability
+
+LANGUAGE BASICS AND DATA TYPES
+-Variable basics
+--Dynamic, but static typed
+--assignment: <- -> vs =
+---Variable naming: use .
+---Google style guide: Search "Google R style guide" or go to "google-styleguide.googlecode.com/svn/trunk/Rguide.xml"
+--"Hello World"
+--Comments: one line (no block)
+--Built-in help: ?
+--installing and loading packages
+
+-Atomic data types
+--Character, Factor, Logical, Numeric, Integer, Complex, Date
+--Examples of each data type
+---class(), as.type()
+---Inf
+--Basic operations: math, nchar
+--Touch on Date differences -> POSIXct vs POSIXlt vs Date
+--Vectors
+---Creation: c(), :
+---accessors, operations, length(), functions in general
+---Factor vectors
+----Factor levels, ordered factors
+
+-Advanced data types
+--Sidebar: str(), summary(), print()
+--Data Frames
+---Creation: data.frame, data(), reading in data
+---Limitations: Each column is a vector; different columns can have different types
+---structure (nrow, ncol, dim, names, rownames), description (head, tail)
+---Accessing: using vectors, -, by colname, [], [[]], $
+--Lists
+---What they are: Like data frames, but each list element can contain *anything*
+---Creation, accessing ([] vs [[]]), names
+---Note returned by many functions
+--Matrices
+---2-D vectors: each element of the whole object must be same type (usually numeric)
+---operations, (rowname, colname)
+--Arrays
+---N-D vectors
+--Missing Values
+---NA vs NaN vs NULL
+
+-Flow Control
+--if, else, ifelse
+--*apply functions
+---apply(): matrices only
+---lapply(): lists + data frames, returns list
+---sapply(): lists + data frames, returns vector
+---mapply(): multiple lists
+--aggregate
+---formulas
+
+-Data Reshaping
+--cbind() + rbind()
+
+-Reading and Writing Data
+--file system navigation
+---getwd(), setwd()
+---R studio helper
+--read.table, read.csv (only different in default header and delimiter)
+--write.table, write.csv (diff only in default delimiter and col.names)
+--RData files
+---save(), load()
+--Other data types: xml, json, Excel
+--Database connections
+
+-Basic Probability & Statistics
+--Probability distributions
+---rnorm, dnorm, pnorm, rbinom, dbinom, pbinom
+--Linear model creation
+---ln() with formula
+
+OPTIONAL
+-Plotting basics
+--plot()
+--par()
+--lattice library
+---xyplot(panel...)

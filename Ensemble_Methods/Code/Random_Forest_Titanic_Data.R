@@ -13,54 +13,69 @@ library(randomForest)
 
 ## DATA EXPLORATION AND CLEANING
 ## load the Titanic data in R
-titanic.data <- read.csv("../../Datasets/Titanic_train.csv", header=TRUE)
+## Be sure your working directory is set to bootcamp base directory
+titanic.data <- read.csv("Datasets/titanic.csv", header=TRUE)
 ## explore the data set
 dim(titanic.data)
 str(titanic.data)
 summary(titanic.data)
-## ignore the PassengerID, Name, Ticket, and Cabin
-titanic.data <- titanic.data[, -c(1, 4, 9, 11, 12)]
+
+## remove PassengerID, Name, Ticket, and Cabin attributes
+titanic.data <- titanic.data[, -c(1, 4, 9, 11)]
+## Cast target attribute to factor
 titanic.data$Survived <- as.factor(titanic.data$Survived)
-## there are some NAs in Age, fill it with the median value
+levels(titanic.data$Survived) <- c('Dead', 'Alive')
+## there are some NAs in Age, fill them with the median value
 titanic.data$Age[is.na(titanic.data$Age)] = median(titanic.data$Age, na.rm=TRUE)
 
 ## BUILD MODEL
-## randomly choose 80% of the data set as training data
-random.rows.train <- sample(1:nrow(titanic.data), 0.8*nrow(titanic.data), replace=F)
-titanic.train <- titanic.data[random.rows.train,]
+## randomly choose 70% of the data set as training data
+set.seed(27)
+titanic.train.indices <- sample(1:nrow(titanic.data), 0.7*nrow(titanic.data), replace=F)
+titanic.train <- titanic.data[titanic.train.indices,]
 dim(titanic.train)
-## select the other 20% as the testing data
-random.rows.test <- setdiff(1:nrow(titanic.data),random.rows.train)
-titanic.test <- titanic.data[random.rows.test,]
+summary(titanic.train$Survived)
+## select the other 30% as the testing data
+titanic.test <- titanic.data[-titanic.train.indices,]
 dim(titanic.test)
-## fitting decision model on training set
-set.seed(777)
-titanic.model <- randomForest(Survived~., data=titanic.train, importance=TRUE, ntree=500)
-titanic.model
+summary(titanic.test$Survived)
+## You could also do this
+#random.rows.test <- setdiff(1:nrow(titanic.data),random.rows.train)
+#titanic.test <- titanic.data[random.rows.test,]
+
+## Fit decision model to training set
+titanic.rf.model <- randomForest(Survived ~ ., data=titanic.train, importance=TRUE, ntree=500)
+print(titanic.rf.model)
 
 ## MODEL EVALUATION
-## to predict using logistic regression model, probablilities obtained
-titanic.test.predictions <- predict(titanic.model, titanic.test, type="response")
-## extract out the observation for titanic.testing dataset
-titanic.test.observations <- titanic.test[,1]
-## show the confusion table
-confusion.matrix <- table(titanic.test.predictions, titanic.test.observations)
-confusion.matrix
+## Predict test set outcomes, reporting probabilities
+titanic.rf.predictions <- predict(titanic.model, titanic.test, type="response")
+## calculate the confusion matrix
+titanic.rf.confusion <- table(titanic.rf.predictions, titanic.test$Survived)
+print(titanic.rf.confusion)
 ## accuracy
-accuracy <- sum(diag(confusion.matrix)) / sum(confusion.matrix)
-accuracy
+titanic.rf.accuracy <- sum(diag(titanic.rf.confusion)) / sum(titanic.rf.confusion)
+print(titanic.rf.accuracy)
 ## precision
-precision <- confusion.matrix[2,2] / sum(confusion.matrix[2,])
-precision
+titanic.rf.precision <- titanic.rf.confusion[2,2] / sum(titanic.rf.confusion[2,])
+print(titanic.rf.precision)
 ## recall
-recall <- confusion.matrix[2,2] / sum(confusion.matrix[,2])
-recall
+titanic.rf.recall <- titanic.rf.confusion[2,2] / sum(titanic.rf.confusion[,2])
+print(titanic.rf.recall)
 ## F1 score
-F1.score <- 2 * precision * recall / (precision + recall)
-F1.score
-## show the importance of variables
-importance(titanic.model)
-varImpPlot(titanic.model)
+titanic.rf.F1 <- 2 * titanic.rf.precision * titanic.rf.recall / (titanic.rf.precision + titanic.rf.recall)
+print(titanic.rf.F1)
+## show variable importance
+importance(titanic.rf.model)
+varImpPlot(titanic.rf.model)
 
 ## EXERCISE
-## Random forest has its build-in function of feature selection. varImpPlot() function helps us visualize the importance of all features in the random forest model. Check the importance of all features, remove the lest important one and re-build this model. Would it have similar performance? If so, continue to remove the (newer) lest important feature and re-build the model again, until the model has much worse performance as the original one. Imaging you are dealing much larger data than this Titanic data set, then memory and calculating speed are something that you concern about. In such situation, what are the features you will use in the model?
+## Random forest has built-in feature selection.
+## varImpPlot() function helps us visualize the importance of the features passed to 
+## the model. Look at the importance table/graph, remove the least important predictor
+## and re-build this model. Does it have similar performance? 
+## If so, iterate, removing the new least important feature and re-building the model,
+## until your model has much worse performance than the original one. 
+## Imagine you are dealing with a much larger dataset, so memory and calculation time
+## are something that you must be concerned about. In such a situation, what are the
+## features you would choose to use in production?
