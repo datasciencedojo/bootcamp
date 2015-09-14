@@ -1,0 +1,15 @@
+1) Go to the UCI Data Science Repository at http://archive.ics.uci.edu/ml/
+
+2) Find and download the "Wine Data Set" donated 1991-07-01, with 178 data objects and 13 features. Download both the .data file and the .names file.
+
+3) Load the .data file into R and use the .names file to assign column names to all the columns (hint: the first column is class, the others are presented in the order given in wines.name)
+
+4) Write out "wine.csv", a file containing all the data with column headers.
+
+5) Using the plotting and exploration metrics of your choice, identify what you think are the best 5 predictive columns in the data.
+
+6) Using those 5 features, perform a 70/30 training/test split on the data and build 3 different decision trees (using rpart) on the training data. 
+
+7) Using print() and summary(), answer the following questions: Which of the 5 features you chose were used most often in the 3 decision trees? What does this tell you about the quality of those features?
+
+8) Use predict() to run your 3 trained models against your test data. How do you think you should assess the quality of your models? How good were the models you built?
