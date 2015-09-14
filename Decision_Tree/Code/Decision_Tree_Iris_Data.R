@@ -71,4 +71,4 @@ print(iris.dt.F1)
 ## Instead of rpart(), try to use ctree() in "party" for the same data. 
 ## They implement a different algorithm for building the tree. 
 ## But for this small amount of data, do these different functions (with different algorithms) 
-## give us the same tree?
+## actually give us different trees?

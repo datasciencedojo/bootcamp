@@ -2,9 +2,9 @@
 
 2) Find and download the "Wine Data Set" donated 1991-07-01, with 178 data objects and 13 features. Download both the .data file and the .names file.
 
-3) Load the .data file into R and use the .names file to assign column names to all the columns (hint: the first column is class, the others are presented in the order given in wines.name)
+3) Load the .data file into R and use the .names file to assign column names to all the columns. Cast categorical columns to factor and assign human-meaningful names to the levels. (hint: the first column is class, the others are presented in the order given in wines.name)
 
-4) Write out "wine.csv", a file containing all the data with column headers.
+4) Write your new data frame out to "wine.csv", a file containing all the data with column headers.
 
 5) Using the plotting and exploration metrics of your choice, identify what you think are the best 5 predictive columns in the data.
 
