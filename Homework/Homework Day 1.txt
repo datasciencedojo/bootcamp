@@ -6,10 +6,10 @@
 
 4) Write your new data frame out to "wine.csv", a file containing all the data with column headers.
 
-5) Using the plotting and exploration metrics of your choice, identify what you think are the best 5 predictive columns in the data.
+5) Using the plotting and exploration tools of your choice, identify what you think are the best 5 predictive columns in the data.
 
 6) Using those 5 features, perform a 70/30 training/test split on the data and build 3 different decision trees (using rpart) on the training data. 
 
-7) Using print() and summary(), answer the following questions: Which of the 5 features you chose were used most often in the 3 decision trees? What does this tell you about the quality of those features?
+7) Using print() and summary(), answer the following questions: Which of the 5 features you chose were used most often in the 3 decision trees? What does this tell you about the quality of the features you chose?
 
 8) Use predict() to run your 3 trained models against your test data. How do you think you should assess the quality of your models? How good were the models you built?
