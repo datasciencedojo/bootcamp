@@ -1,0 +1,19 @@
+miscTools
+animation
+lattice
+rpart
+party
+randomForest
+bst
+AUC
+pROC
+e1071
+klaR
+ElemStatLearn
+glmnet
+Metrics
+stats
+fpc
+ggplot2
+
+install.packages(c("miscTools", "animation", "lattice", "rpart", "party", "randomForest", "bst", "AUC", "pROC", "e1071", "klaR", "ElemStatLearn", "glmnet", "Metrics", "stats", "fpc", "ggplot2"))
