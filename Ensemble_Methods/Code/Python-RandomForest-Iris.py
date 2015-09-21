@@ -6,7 +6,8 @@ import numpy
 # Load iris class into memory
 iris = load_iris() 
 
-# gaining information about the dataset
+# gaining information about the dataset, 
+# would break in AzureML and AWS
 #print iris['DESCR']
 
 # loads the iris dataset into a data frame (pandas)
