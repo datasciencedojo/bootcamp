@@ -25,8 +25,8 @@ levelplot(matrix(zip.train[5,2:257],nrow=16, byrow=TRUE))
 
 ## BUILD MODEL
 ## retain the rows with labels "2" and "3" in training and testing datasets
-zip.train <- subset(zip.train,zip.train$V1==2 | zip.train$V1==3)
-zip.test <- subset(zip.test,zip.test$V1==2 | zip.test$V1==3)
+zip.train <- subset(zip.train, zip.train$V1==2 | zip.train$V1==3)
+zip.test <- subset(zip.test, zip.test$V1==2 | zip.test$V1==3)
 ## convert V1 (response) to factor for the training & testing datasets
 zip.train[,1] <- as.factor(zip.train[,1])
 zip.test[,1] <- as.factor(zip.test[,1])
@@ -43,13 +43,13 @@ head(zip.glm.predictions)
 ## assign labels with decision rule, >0.5= "2", <0.5="3"
 zip.glm.predictions.rd <- ifelse(zip.glm.predictions >= 0.5, "3", "2")
 ## calculate the confusion matrix
-zip.glm.confusion <- table(zip.glm.predictions.rd, zip.test.observations)
+zip.glm.confusion <- table(zip.glm.predictions.rd, zip.test[,1])
 print(zip.glm.confusion)
 ## calculate the accuracy, precision, recall, F1
 zip.glm.accuracy <- sum(diag(zip.glm.confusion)) / sum(zip.glm.confusion)
 print(zip.glm.accuracy)
 
-zip.glm.precision <- zip.glm.confusion[2,2] / sum(zip.lm.confusion[2,])
+zip.glm.precision <- zip.glm.confusion[2,2] / sum(zip.glm.confusion[2,])
 print(zip.glm.precision)
 
 zip.glm.recall <- zip.glm.confusion[2,2] / sum(zip.glm.confusion[,2])
@@ -59,8 +59,8 @@ zip.glm.F1 <- 2 * zip.glm.precision * zip.glm.recall / (zip.glm.precision + zip.
 print(zip.glm.F1)
 
 ## extract out a row with a wrong prediction using the 50% threshold
-zip.glm.prediction.matrix <- cbind(zip.test.predictions, zip.test[,1])
-zip.glm.prediction.wrong <- subset(zip.predictions.table, zip.test.observations != zip.test.predictions)
+zip.glm.prediction.matrix <- cbind(zip.glm.predictions, zip.test[,1])
+zip.glm.prediction.wrong <- subset(zip.glm.prediction.matrix, zip.test[,1] != zip.glm.predictions)
 print(zip.glm.prediction.wrong)
 
 ## visualize one of the wrong prediction from logistic regression
