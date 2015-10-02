@@ -70,7 +70,7 @@ titanic.bst.F1 <- 2 * titanic.bst.precision * titanic.bst.recall / (titanic.bst.
 print(titanic.bst.F1)
 
 ## EXERCISE
-## In the function of bst(), we can pass a parameter maxdepth to control.tree in the
+## In the function bst(), we can pass a parameter maxdepth to control.tree in the
 ## bst function to control the maximum depth of any node of the final tree, with the
 ## root node coded as depth 0. The default value is 1. If we increase the value of
 ## maxdepth does this lead to a better model?

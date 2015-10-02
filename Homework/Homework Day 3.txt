@@ -1,0 +1,7 @@
+1) Upload the wine dataset from the UCI repository to an Azure ML experiment
+
+2) Recreate the optimal feature engineering and selection steps from the previous days in your Azure experiment
+
+3) Choose one of the multiclass classification algorithms available in Azure and train a classification model
+
+4) Using the visualization tools and any combination of the Evaluate Model module, manual parameter tuning, the Cross Validation module, and the Sweep Parameters module, optimize your chosen model for wine classification.
