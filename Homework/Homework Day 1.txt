@@ -1,10 +1,10 @@
 1) Go to the UCI Data Science Repository at http://archive.ics.uci.edu/ml/
 
-2) Find and download the "Wine Data Set" donated 1991-07-01, with 178 data objects and 13 features. Download both the .data file and the .names file.
+2) Find and download the "Adult Data Set" donated 1996-05-01, with 48842 data objects and 14 features. Download the .data, .test, and .names files.
 
-3) Load the .data file into R and use the .names file to assign column names to all the columns. Cast categorical columns to factor and assign human-meaningful names to the levels. (hint: the first column is class, the others are presented in the order given in wines.name)
+3) Load the .data and .test files into R and use the .names file to assign column names to all the columns. Combine the .data and .test into one data frame. Cast categorical columns to factor and assign human-meaningful names to the levels if needed.
 
-4) Write your new data frame out to "wine.csv", a file containing all the data with column headers.
+4) Write your new data frame out to "adult.csv", a comma delimited file containing all the data with column headers.
 
 5) Using the plotting and exploration tools of your choice, pick three different subsets of 5 features. The subsets do not need to be completely distinct (i.e. feel free to reuse some columns)
 

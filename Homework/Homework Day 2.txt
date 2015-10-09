@@ -1,9 +1,9 @@
-1) Use the wine dataset from yesterday for all of the following points.
+1) Use the adult dataset from yesterday for all of the following points.
 
-2) Based on the exploration and visualization from yesterday, select what you think is an optimal set of training features. If you think you should bin or otherwise modify any columns, do so.
+2) Based on the exploration and visualization from yesterday, select what you think is an optimal set of training features. If you think you should bin, combine, remove, or otherwise modify any columns, do so.
 
-3) Use the randomForest and bst packages to build both a random forest and a boosted decision tree to predict the wine type
+3) Use the randomForest and bst packages to build both a random forest and a boosted decision tree to predict the wine type. You will have to modify the way the data is stored in order to use the bst package properly; look at ?bst and the "Boosted_Decision_Tree_Titanic_Data.R" code example in the Ensemble Methods folder.
 
-4) Tune the random forest and boosted decision tree models using the Variable Importance information they report; be sure to try modifying at least two different parameters
+4) Tune the random forest and boosted decision tree models; be sure to try modifying at least two different parameters. You may also want to use variable importance information to alter which features you include in your model.
 
-5) Optimize in turn for accuracy, precision, recall, and F1 score. Do the different model types do better at certain metrics? Is one model the best at every metric?
+5) Optimize in turn for accuracy, precision, recall, and F1 score on a test set. Do the different model types do better at certain metrics? Is one model the best at every metric?
