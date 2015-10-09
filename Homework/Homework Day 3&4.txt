@@ -1,0 +1,11 @@
+1) Go to www.kaggle.com and create an account. You can either create an individual account or link your facebook account.
+
+2) On the main competitions page (which you can get to through the competitions link at the top of the page), scroll down to the "101" section. Click on the "Titanic: Machine Learning from Disaster" competition.
+
+3) To join the competition, click the "Data" link in the left sidebar, under "Home". Agree to the competition's rules and download all the files. This page also has information on the different columns in the data.
+
+4) Load the dataset into R or Azure ML, run a model, submit it, and see how you do! Once you do so, send an email to brian@datasciencedojo.com with your Kaggle name.
+
+5) Try to improve your model and upload new results for Kaggle to check.
+
+6) On Friday morning, I will be surveying all the usernames I have received and the top performers in the bootcamp will receive a small prize.

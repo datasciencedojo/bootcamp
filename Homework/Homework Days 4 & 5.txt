@@ -1,8 +1,0 @@
-1a) Browse the UCI repository for a new data set to work with. Pick either a Regression or a Classification problem, but make sure that there are at least 10 columns and at least 200 data points.
-1b) If you would instead like to get a head start on a Kaggle competition, choose a competition and download the training and test data.
-
-2) Perform your initial data exploration and feature engineering in R, and decide on a model type to train
-
-3) Load the data into Azure, and using the exploration and feature engineering you did in R, transform the data and train a model.
-
-4) Deploy the model to a web service, and using white rabbit, build a front-end for your model.
