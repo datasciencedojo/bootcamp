@@ -32,7 +32,7 @@ dim(ozone.test)
 
 ## fitting decision model on training set 
 ozone.lm.model <- lm(ozone ~ ., data=ozone.train)
-print(ozone.lm.model)
+summary(ozone.lm.model)
 
 ## VISUALIZE THE TRAINED MODEL
 layout(matrix(c(1,2,3,4),2,2)) # set 4 graphs/page 
@@ -41,8 +41,12 @@ plot(ozone.lm.model)
 ## MODEL EVALUATION
 ## make prediction using trained model
 ozone.lm.predictions <- predict(ozone.lm.model, ozone.test)
+par(mfrow=c(3,1))
+plot(ozone.test$ozone, ozone.lm.predictions)
 ## calculate residuals
 ozone.lm.residuals <- ozone.test$ozone - ozone.lm.predictions
+plot(ozone.test$ozone, ozone.lm.residuals)
+plot(ozone.lm.predictions, ozone.lm.residuals)
 ## calculate Root Mean Squared Error (RMSE)
 ozone.lm.rmse <- sqrt(mean(ozone.lm.residuals^2))
 print(ozone.lm.rmse)
