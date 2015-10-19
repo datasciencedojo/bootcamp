@@ -47,7 +47,7 @@ densityplot(iris$Sepal.Width, main="Kernel Density of Petal Width",
 
 
 densityplot(~ Petal.Width, data=iris, groups=Species, plot.points=F, 
-    xlab=list(label="Kernel Density of Petal Width", fontsize=20), ylab="", 
+    ylab=list(label="Kernel Density of Petal Width", fontsize=20), xlab="", 
     main=list(label="Density of Petal Width by Species", fontsize=24), 
     auto.key=list(corner=c(0,0), x=0.4, y=0.8, cex=2), scales=list(cex=1.5)
 ) # cex defines a scale multiplier for text
