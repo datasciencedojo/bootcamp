@@ -61,7 +61,7 @@ print(zip.glm.F1)
 ## extract out a row with a wrong prediction using the 50% threshold
 zip.glm.prediction.matrix <- cbind(zip.glm.predictions, zip.test[,1])
 zip.glm.prediction.wrong <- subset(zip.glm.prediction.matrix, zip.test[,1] != zip.glm.predictions)
-print(zip.glm.prediction.wrong)
+head(zip.glm.prediction.wrong)
 
 ## visualize one of the wrong prediction from logistic regression
 levelplot(matrix(zip.test[161,2:257],nrow=16, byrow=TRUE))
@@ -84,12 +84,12 @@ levelplot(matrix(zip.test[161,2:257],nrow=16, byrow=TRUE))
 ##    varying parameters for glm models
 
 ## EXERCISE
-## This zip classification problem is already solved in our Linear Regression session. 
-## But in this sample code, logistic regression is used for this classification problem. 
-## And it gives us slightly worse result (with more error)! 
+## This zip classification problem was solved in our Linear Regression session. 
+## Here we used logistic regression and it gives us slightly worse result (with more error)! 
 ## What this tells us is: whenever a machine learning problem comes, choose algorithms by thinking 
 ## about their principle, instead of the names! 
-## (I am not saying linear regression is better for this case, since the performance of logistic regression may be improved by fine-tuning the parameters.)
+## (I am not saying linear regression is neccessarily better for this case, 
+## since the performance of logistic regression may be improved by fine-tuning the parameters.)
 ## Compare linear regression, and logistic regression. 
 ## What are the differences and similarities?
 

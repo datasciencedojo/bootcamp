@@ -74,6 +74,3 @@ print(spam.nb.F1)
 ## This sample code for spam data uses the library "klaR" for naive Beyes inference.
 ## Instead of klaR, try to use the library "e1071" as the sample code as in the Iris lab does.
 ## Do they give the same results?
-
-
-

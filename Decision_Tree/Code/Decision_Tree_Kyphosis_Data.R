@@ -131,5 +131,5 @@ text(kyphosis.dt.3.model, use.n = TRUE)
 ## Some parameters used in the above 3 models are:
 ## parms = list(split = "information"))
 ## rpart.control(cp = 0.1, minsplit = 10)
-## Check out ?rpart.control and ?rpart to read the documentation on the model
+## Check out ?rpart.control and ?rpart to read the documentation on the model function
 ## Fine-tune the parameters, can you build a better decision tree model with less error?

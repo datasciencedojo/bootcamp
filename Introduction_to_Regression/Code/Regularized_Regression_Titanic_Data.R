@@ -20,7 +20,7 @@ titanic.data <- read.csv("Datasets/titanic.csv", header=TRUE)
 dim(titanic.data)
 str(titanic.data)
 summary(titanic.data)
-## ignore the PassengerID, Name, Ticket, and Cabin
+## ignore the PassengerID, Name, Ticket, and Cabin; set Survived as a factor
 titanic.data <- titanic.data[, -c(1, 4, 9, 11)]
 titanic.data$Survived <- as.factor(titanic.data$Survived)
 ## there are some NAs in Age, fill them with the median value
@@ -37,7 +37,8 @@ titanic.test <- titanic.data[-titanic.train.indices,]
 dim(titanic.test)
 
 ## fit a logistic regression model to training set
-## glmnet requires a matrix input to the model function. ?glmnet and ?cv.glmnet for the documentation
+## glmnet requires a matrix input to the model function. 
+## See ?glmnet and ?cv.glmnet for the documentation
 ## alpha determines the regularization penalty - 1 is lasso, 0 is ridge regression
 ## glmnet uses cross validation to determine the best lambda value
 x.train <- model.matrix(Survived ~ ., data=titanic.train)[,-1] 

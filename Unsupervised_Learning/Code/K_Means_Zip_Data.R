@@ -11,7 +11,7 @@
 
 ## load the libraries
 library(stats)
-#library(fpc)
+library(fpc)
 
 ## LOAD THE DATA
 zip.data <- read.csv("Datasets/Zip/zip.train.csv", header= F)
@@ -29,7 +29,7 @@ summary(zip.km.model)
 
 ## VISUALIZE THE CLUSTERS
 ## subset out each cluster to investigate the data
-zip.km.clusters <- lapply(1:10, function(nc)zip.data.subset[zip.model$cluster==nc, 1])
+zip.km.clusters <- lapply(1:10, function(nc)zip.data.subset[zip.km.model$cluster==nc, 1])
 print(zip.km.clusters)
 ##  plot to visualize the clusters
 par(mfrow=c(1,2))

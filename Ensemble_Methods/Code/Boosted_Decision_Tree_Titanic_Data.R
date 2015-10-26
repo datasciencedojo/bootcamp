@@ -47,7 +47,7 @@ summary(titanic.test$Survived)
 ## different models often have different requirements. Look at package manuals,
 ## or use ? to figure out what a given model requires
 titanic.bst.model <- bst(titanic.train[,2:8], titanic.train$Survived, learner = "tree")
-#titanic.model <- bst(titanic.train[,2:8], titanic.train$Survived, learner = "tree", control.tree=list(maxdepth=2))
+#titanic.bst.model <- bst(titanic.train[,2:8], titanic.train$Survived, learner = "tree", control.tree=list(maxdepth=2))
 print(titanic.bst.model)
 
 ## MODEL EVALUATION

@@ -3,9 +3,7 @@
 ## Copyright (C) 2015
 
 ## Objective: Machine learning on hand-written digits recognition with linear regression model. In this task, we just do the binary classification between digits '2' and '3'.
-## Data source: zip.train.csv  
-##	        zip.test.csv   
-##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Datasets/Zip
+## Data sources: zip.train.csv and zip.test.csv
 ###################################################################################
 
 ## DATA EXPLORATION

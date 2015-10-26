@@ -76,6 +76,7 @@ proportion.test.results <- prop.test(x=c(success.A, success.B), n=c(visits.per.g
 ## know if H1 is true, what is the possiblity that we accept H0 when H1 is true?
 ## The power can be obtained using power.prop.test function.
 proportion.test.power <- power.prop.test(n=visits.per.group, p1=conversion.rate.A, p2=conversion.rate.B, sig.level=0.05)
+print(proportion.test.power)
 
 ###################################################################################
 ## 2. AB Test of Means
@@ -115,5 +116,5 @@ t.test.results <- t.test(dwell.time.versionA$dwellTime, dwell.time.versionB$dwel
 ## 3430 of the records in group B with unsuccessful conversion are fake data
 ## automatically filled in by computer. The number of visitors for version B is thus
 ## 298234/2-3430, but there were still 8604 successful conversions for version B.
-## Does this relevation change your conclusion in section 1?
+## Does this revelation change your conclusion from section 1?
 ###################################################################################
