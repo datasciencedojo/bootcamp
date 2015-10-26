@@ -8,6 +8,6 @@
 
 5) Using the plotting and exploration tools of your choice, pick three different subsets of 5 features. The subsets do not need to be completely distinct (i.e. feel free to reuse some columns)
 
-6) Using those 3 sets, perform a 70/30 training/test split on the data and build 3 different decision trees (using rpart) on the training data. 
+6) Using those 3 sets, perform a 70/30 training/test split on the data and build 3 different decision trees (using rpart) on the training data, predicting the Income column.
 
 7) Using print() and summary(), answer the following questions: Which of the features you chose were used most often in the decision trees? What does this tell you about the quality of the features you chose?
