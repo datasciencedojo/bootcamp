@@ -3,7 +3,7 @@
 ## Copyright (C) 2015
 
 ## Objective: Machine learning of iris species classification with decision tree
-## Data source: iris data set (included in R)	
+## Data source: iris data set (included in R)
 ## Please install "rpart" package: install.packages("rpart")
 ## Please install "party" package: install.packages("party")
 ###################################################################################

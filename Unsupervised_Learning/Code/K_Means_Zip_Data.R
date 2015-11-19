@@ -5,7 +5,6 @@
 ## Objective: Machine learning on hand-written digits recognition with K-Means clustering. In this task, we just do the binary classification between digits '2' and '3'.
 ## Data source: zip.train.csv  
 ##              at: https://github.com/datasciencedojo/bootcamp/tree/master/Datasets/Zip
-## Please install "stats" package: install.packages("stats")
 ## Please install "fpc" package: install.packages("fpc")
 ###################################################################################
 
@@ -43,7 +42,7 @@ title(main="Discriminant Projection Plot of 10 Hand-Written Digits")
 
 ####calcuate within-cluster sum of squared ####
 
-wcss <- (nrow(zip.train)-1)*sum(apply(zip.train,2,var))   
+wcss <- (nrow(zip.train)-1)*sum(apply(zip.train,2,var))
 
 for (i in 2:15) {
     wcss[i] <- sum(kmeans(zip.train,centers=i)$withinss)
