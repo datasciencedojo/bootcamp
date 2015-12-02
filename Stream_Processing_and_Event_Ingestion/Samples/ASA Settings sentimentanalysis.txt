@@ -1,0 +1,38 @@
+{
+  "name": "twittersentiments",
+  "location": "Central US",
+  "tags": {
+    "SomeTag": "Test"
+  },
+  "properties": {
+    "sku": {
+      "name": "standard"
+    },
+    "inputs": [
+      ],
+    "transformation": {
+      "name": "Query",
+      "properties": {
+      "streamingUnits": 1,
+        "query": "select Text,sentiment(Text) from Input"
+      }
+    },
+    "functions": [
+      {
+        "name": "sentiment",
+        "properties": {
+          "type": "Microsoft.MachineLearning/WebService",
+          "properties": {
+            "endpoint": "YOUR ENDPOINT",
+            "apiKey": "YOUR API KEY",
+            "featureNames": [
+              "tweet"
+            ]
+          }
+        }
+      }
+    ],
+    "outputs": [
+    ]
+  }
+}

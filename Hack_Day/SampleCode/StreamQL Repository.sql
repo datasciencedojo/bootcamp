@@ -175,3 +175,34 @@ HAVING
     or avg(hmdt) > 70
     or avg(temp) < 68
     or avg(temp) > 86
+
+-- Categorical Binning & Feature Engineering
+SELECT dspl, 
+substring(time,1,10) as 'Ac_Date',
+substring(time,12,8) as 'Ac_Time',
+substring(eventprocessedutctime,1,10) as 'Proc_Date',
+substring(eventprocessedutctime,12,8) as 'Proc_Time',
+substring(eventenqueuedutctime,1,10) as 'Que_Date',
+substring(eventenqueuedutctime,12,8) as 'Que_Time',
+hmdt, temp,
+
+--Hide the following columns: time, subject
+--Hide the following columns: eventprocessedutctime, eventenqueuedutctime, 
+
+case
+when hmdt > 48.0 then 'Very Humid'
+when hmdt < 48.0 then 'Not Humid'
+else 'Neutral Humidity' end as 'Humidity Level',
+
+case
+when temp > 75.0 then 'High Temp'
+when hmdt < 75.0 then 'Low Temp'
+else 'Neutral Temp' end as 'Temperature Level'
+INTO
+     sensorstream
+FROM
+     sensorinput
+where 
+----Only return temperature greater than 70 and humidity greater than 40
+temp > 70.00
+and hmdt > 40.0;
