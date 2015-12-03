@@ -59,7 +59,7 @@ zip.glm.F1 <- 2 * zip.glm.precision * zip.glm.recall / (zip.glm.precision + zip.
 print(zip.glm.F1)
 
 ## extract out a row with a wrong prediction using the 50% threshold
-zip.glm.prediction.matrix <- cbind(zip.glm.predictions, zip.test[,1])
+zip.glm.prediction.matrix <- cbind(zip.glm.predictions.rd, zip.test[,1])
 zip.glm.prediction.wrong <- subset(zip.glm.prediction.matrix, zip.test[,1] != zip.glm.predictions)
 head(zip.glm.prediction.wrong)
 
