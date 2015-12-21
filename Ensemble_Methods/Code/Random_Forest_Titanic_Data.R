@@ -49,7 +49,7 @@ print(titanic.rf.model)
 
 ## MODEL EVALUATION
 ## Predict test set outcomes, reporting probabilities
-titanic.rf.predictions <- predict(titanic.rf.model, titanic.test, type="response")
+titanic.rf.predictions <- predict(titanic.rf.model, titanic.test, type="prob")
 ## calculate the confusion matrix
 titanic.rf.confusion <- table(titanic.rf.predictions, titanic.test$Survived)
 print(titanic.rf.confusion)
