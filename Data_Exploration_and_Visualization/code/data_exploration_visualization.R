@@ -26,6 +26,10 @@ boxplot(Sepal.Length ~ Species, data=iris,
     main="Sepal Length for Various Species", xlab="Species",  ylab="Sepal Length", 
     notch=TRUE, col=c("blue","green","red")
 )
+boxplot(Petal.Length ~ Species, data=iris, 
+        main="Petal Length for Various Species", xlab="Species",  ylab="Sepal Length", 
+        notch=TRUE, col=c("blue","green","red")
+)
 
 # Saving Plots. Can also use the "Plot" window in R Studio
 # Saves to current working directory (getwd()) by default
@@ -40,8 +44,6 @@ dev.off() # Returns plot to the IDE
 
 # Lattice Histogram & Density
 histogram(iris$Petal.Length, breaks=10, type="count", main="Histogram")
-
-densityplot(iris$Sepal.Width, main="Kernel Density of Petal Width", 
     type="percent", n=150
 )
 

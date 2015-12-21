@@ -26,7 +26,7 @@ titanic.data <- titanic.data[, -c(1, 4, 9, 11)]
 titanic.data$Survived <- as.factor(titanic.data$Survived)
 levels(titanic.data$Survived) <- c('Dead', 'Alive')
 ## there are some NAs in Age, fill them with the median value
-titanic.data$Age[is.na(titanic.data$Age)] = median(titanic.data$Age, na.rm=TRUE)
+titanic.data$Age[is.na(titanic.data$Age)] <- median(titanic.data$Age, na.rm=TRUE)
 
 ## BUILD MODEL
 ## randomly choose 70% of the data set as training data
