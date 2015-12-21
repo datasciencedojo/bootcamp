@@ -24,7 +24,6 @@ ggpairs(wine.red[, c(5:8, 12)])
 ggpairs(wine.red[, 9:12])
 wine.red$quality <- as.integer(wine.red$quality)
 
-
 ## BUILD MODEL
 ## randomly choose 70% of the data set as training data
 set.seed(27)
@@ -39,7 +38,7 @@ dim(wine.red.test)
 #wine.red.test <- wine.red[wine.red.test.indices,]
 
 ## fitting decision model on training set 
-wine.red.lm.model <- lm(quality ~ ., data=wine.red.train)
+wine.red.lm.model <- lm(quality ~ volatile.acidity + residual.sugar + chlorides + total.sulfar.dioxide + suphates + alcohol, data=wine.red.train)
 summary(wine.red.lm.model)
 
 ## VISUALIZE THE TRAINED MODEL
@@ -49,7 +48,7 @@ plot(wine.red.lm.model)
 ## MODEL EVALUATION
 ## make prediction using trained model
 wine.red.lm.predictions <- predict(wine.red.lm.model, wine.red.test)
-par(mfrow=c(1,3))
+par(mfrow=c(1,1))
 plot(wine.red.test$quality, wine.red.lm.predictions)
 ## calculate residuals
 wine.red.lm.residuals <- wine.red.test$quality - wine.red.lm.predictions
