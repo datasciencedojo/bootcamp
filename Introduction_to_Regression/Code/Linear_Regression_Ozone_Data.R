@@ -3,16 +3,13 @@
 ## Copyright (C) 2015
 
 ## Objective: Machine learning on ozone prediction with linear regression model
-## Data source: ozone data set (at https://github.com/datasciencedojo/bootcamp/tree/master/Datasets)
-## Please install "miscTools" package: install.packages("miscTools")
+## Data source: ozone data set (in Datasets folder)
 ###################################################################################
 
 ## DATA EXPLORATION
-## load the library
-library(miscTools)
 ## load the ozone data to R
 ## make sure your working directory is set to the bootcamp base folder
-ozone.data <- read.table("Datasets/Ozone/ozone.data", header=T)
+ozone.data <- read.table("Datasets/ozone.data", header=T)
 str(ozone.data)
 ## visualize the data
 plot(ozone.data)
@@ -54,7 +51,9 @@ print(ozone.lm.rmse)
 ozone.lm.mae <- mean(abs(ozone.lm.residuals))
 print(ozone.lm.mae)
 ## R squared (coefficient of determination)
-ozone.lm.r2 <- rSquared(ozone.lm.predictions, ozone.lm.residuals)
+ozone.ss.tot <- sum((ozone.test$ozone - mean(ozone.test$ozone))^2)
+ozone.lm.ss.res <- sum(ozone.lm.residuals^2)
+ozone.lm.r2 <- 1 - ozone.lm.ss.res / ozone.ss.tot
 print(ozone.lm.r2)
 
 ## Exercise:
