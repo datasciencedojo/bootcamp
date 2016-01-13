@@ -48,8 +48,8 @@ titanic.rf.model <- randomForest(Survived ~ ., data=titanic.train, importance=TR
 print(titanic.rf.model)
 
 ## MODEL EVALUATION
-## Predict test set outcomes, reporting probabilities
-titanic.rf.predictions <- predict(titanic.rf.model, titanic.test, type="prob")
+## Predict test set outcomes, reporting class labels
+titanic.rf.predictions <- predict(titanic.rf.model, titanic.test, type="response")
 ## calculate the confusion matrix
 titanic.rf.confusion <- table(titanic.rf.predictions, titanic.test$Survived)
 print(titanic.rf.confusion)
@@ -65,6 +65,11 @@ print(titanic.rf.recall)
 ## F1 score
 titanic.rf.F1 <- 2 * titanic.rf.precision * titanic.rf.recall / (titanic.rf.precision + titanic.rf.recall)
 print(titanic.rf.F1)
+# We can also report probabilities
+titanic.rf.predictions.prob <- predict(titanic.rf.model, titanic.test, type="prob")
+head(titanic.rf.predictions.prob)
+head(titanic.test)
+
 ## show variable importance
 importance(titanic.rf.model)
 varImpPlot(titanic.rf.model)
