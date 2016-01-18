@@ -32,8 +32,14 @@ dim(iris.test)
 #iris.test.indices <- setdiff(1:nrow(iris),random.rows.train)
 #iris.test <- iris[random.rows.test,]
 
-## fitting decision model on training set
-iris.dt.model <- rpart(Species ~ ., data = iris.train)
+## Setting control parameters for rpart
+## Check ?rpart.control for what the parameters do
+iris.dt.parameters <- rpart.control(minsplit=20, minbucket=7, cp=0.01, maxdepth=30)
+
+## Fit decision model to training set
+## Use parameters from above and Gini index for splitting
+iris.dt.model <- rpart(Species ~ ., data = iris.train, 
+                       control=iris.dt.parameters, parms=list(split="gini"))
 
 ## VISUALIZE THE MODEL
 ## plot the tree structure
@@ -67,7 +73,7 @@ print(iris.dt.F1)
 ## It provides nonparametric regression trees for nominal, ordinal,
 ## numeric, censored, and multivariate responses. Tree growth is based on statistical 
 ## stopping rules, so pruning should not be required. 
-## party manual: http://cran.r-project.org/web/packages/party/party.pdf or ?party after library(party)
+## party manual: http://cran.r-project.org/web/packages/party/party.pdf
 ## Instead of rpart(), try to use ctree() in "party" for the same data. 
 ## They implement a different algorithm for building the tree. 
 ## But for this small amount of data, do these different functions (with different algorithms) 
