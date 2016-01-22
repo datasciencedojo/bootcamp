@@ -1,4 +1,6 @@
-# bootcamp
+Tamara's copy
+
+bootcamp
 _This repo includes slides and sample codes in DSD's bootcamp_  
 
 **The folders are described as following:**  
